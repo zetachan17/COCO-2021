@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Room : MonoBehaviour
+public class Room : Interactable
 {
     [SerializeField]
     private SpriteFader floor;
@@ -14,38 +14,13 @@ public class Room : MonoBehaviour
         room = GetComponent<SpriteFader>();
 	}
 
-	private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.E) && _isPlayerInRange)
-		{
-            if(floor.isVisible)
-			{
-                floor.fadeOut();
-                room.fadeIn();
-            }
-            else if (!floor.isVisible)
-			{
-                floor.fadeIn();
-                room.fadeOut();
-            }
-        }
-    }
-
-	private void OnTriggerEnter2D(Collider2D collision)
-	{
-        Debug.Log("Entered " + collision.gameObject.tag);
-		if(collision.gameObject.tag == "Player")
-		{
-            _isPlayerInRange = true;
-		}
-	}
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        Debug.Log("Exited " + collision.gameObject.tag);
-        if (collision.gameObject.tag == "Player")
-        {
-            _isPlayerInRange = false;
-        }
+    override protected void TriggerEffect(){
+        if(floor.isVisible){
+            floor.fadeOut();
+            room.fadeIn();
+        }else if (!floor.isVisible){
+            floor.fadeIn();
+            room.fadeOut();
+        } 
     }
 }

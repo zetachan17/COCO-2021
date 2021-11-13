@@ -28,8 +28,4 @@ public class PlayerController : MonoBehaviour
             acceleration = 0;
         }
     }
-
-    void MovePlayer(float moveValue){
-        
-    }
 }
