@@ -5,7 +5,6 @@ using UnityEngine;
 public class Interactable : MonoBehaviour
 {
     private bool _isPlayerInRange = false;
-    // Start is called before the first frame update
 
     // Update is called once per frame
     void Update()
@@ -17,7 +16,7 @@ public class Interactable : MonoBehaviour
 
     // Place effect of activating a trigger here
     protected virtual void TriggerEffect(){}
-    
+
     private void OnTriggerEnter2D(Collider2D collision)
 	{
         Debug.Log("Entered " + collision.gameObject.tag);

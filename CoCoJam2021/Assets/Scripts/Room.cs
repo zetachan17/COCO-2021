@@ -7,7 +7,6 @@ public class Room : Interactable
     [SerializeField]
     private SpriteFader floor;
     private SpriteFader room;
-    private bool _isPlayerInRange = false;
 
 	private void Start()
 	{
