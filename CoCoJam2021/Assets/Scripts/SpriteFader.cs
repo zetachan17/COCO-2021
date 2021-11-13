@@ -7,7 +7,7 @@ public class SpriteFader : MonoBehaviour
     private float fadeSpeed = 1.0f;
     private SpriteRenderer _renderer;
 
-    private IEnumerator currentFade = null;
+    public IEnumerator currentFade = null;
 
 	private void Start()
 	{
@@ -18,7 +18,6 @@ public class SpriteFader : MonoBehaviour
 	{
         if(currentFade == null && _renderer.color.a != alpha)
 		{
-            Debug.Log("Start fade");
             currentFade = fadeTo(alpha);
             StartCoroutine(currentFade);
         }

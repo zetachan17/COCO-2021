@@ -13,6 +13,8 @@ public class Room : Interactable
 
     private bool isPlayerInside = false;
 
+    public float transparency = 0.5f;
+
 
     private void Start()
 	{
@@ -30,7 +32,7 @@ public class Room : Interactable
         {
             if (isPlayerInRange)
             {
-                floor.FadeTo(0.5f);
+                floor.FadeTo(transparency);
             }
             else
 			{
