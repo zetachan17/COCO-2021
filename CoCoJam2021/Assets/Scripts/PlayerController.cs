@@ -9,11 +9,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float accelerationRate = 0.1f;
     private float acceleration = 0.1f;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
