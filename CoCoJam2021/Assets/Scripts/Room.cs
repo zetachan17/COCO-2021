@@ -7,7 +7,7 @@ public class Room : MonoBehaviour
     [SerializeField]
     private SpriteFader floor;
     private SpriteFader room;
-    private bool _isPlayerInRange = true;
+    private bool _isPlayerInRange = false;
 
 	private void Start()
 	{
@@ -16,7 +16,7 @@ public class Room : MonoBehaviour
 
 	private void Update()
     {
-        if (Input.GetKey(KeyCode.E) && _isPlayerInRange)
+        if (Input.GetKeyDown(KeyCode.E) && _isPlayerInRange)
 		{
             if(floor.isVisible)
 			{
@@ -33,7 +33,8 @@ public class Room : MonoBehaviour
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-		if(collision.tag == "player")
+        Debug.Log("Entered " + collision.gameObject.tag);
+		if(collision.gameObject.tag == "Player")
 		{
             _isPlayerInRange = true;
 		}
@@ -41,7 +42,8 @@ public class Room : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == "player")
+        Debug.Log("Exited " + collision.gameObject.tag);
+        if (collision.gameObject.tag == "Player")
         {
             _isPlayerInRange = false;
         }
