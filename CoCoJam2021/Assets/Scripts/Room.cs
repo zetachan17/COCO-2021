@@ -17,6 +17,8 @@ public class Room : Interactable
 
     public float transparency = 0.5f;
 
+    [SerializeField]
+    private PlayerController player;
 
     private void Start()
 	{
@@ -50,21 +52,27 @@ public class Room : Interactable
         }
     }
 
-	override protected void TriggerEffect(){
+    override protected void TriggerEffect()
+    {
         if (!isPlayerInside)
         {
             foreach (var obj in objects)
             {
                 obj.enabled = true;
             }
-            foreach(var obj in traps){
+            foreach (var obj in traps)
+            {
                 obj.enabled = true;
             }
 
             foreach (var b in activatedBoundaries)
-			{
+            {
                 b.gameObject.SetActive(true);
-			}
+            }
+
+            // Animation
+            player.animator.SetBool("IsEntering", true);
+            StartCoroutine(Wait());
         }
         else
         {
@@ -72,7 +80,8 @@ public class Room : Interactable
             {
                 obj.enabled = false;
             }
-            foreach(var obj in traps){
+            foreach (var obj in traps)
+            {
                 obj.enabled = false;
             }
 
@@ -82,5 +91,11 @@ public class Room : Interactable
             }
         }
         isPlayerInside = !isPlayerInside;
+    }
+
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(0.1f);
+        player.animator.SetBool("IsEntering", false);
     }
 }
