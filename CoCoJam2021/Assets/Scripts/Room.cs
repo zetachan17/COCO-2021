@@ -7,47 +7,80 @@ public class Room : Interactable
     [SerializeField]
     private SpriteFader floor;
     [SerializeField]
-    private List<SpriteFader> objects;
+    private List<Collider2D> objects;
     [SerializeField]
-    private List<SpriteFader> traps;
-    private SpriteFader room;
-    
+    private List<Collider2D> traps;
+    [SerializeField]
+    private List<Boundary> activatedBoundaries;
 
-	private void Start()
+    private bool isPlayerInside = false;
+
+    public float transparency = 0.5f;
+
+
+    private void Start()
 	{
-        room = GetComponent<SpriteFader>();
-        room.fadeOut();
-        foreach(SpriteFader obj in objects){
-            obj.fadeOut(); 
+        foreach(var obj in objects)
+        {
+            obj.enabled = false; 
         }
-        foreach(SpriteFader obj in traps){
-            obj.fadeOut(); 
+        foreach(var obj in traps){
+            obj.enabled = false; 
         }
 	}
-
-    private void Update() {
+        
+    private void Update()
+    {
         DetectInteraction(KeyCode.E);
+
+        if (isPlayerInside)
+        {
+            if (isPlayerInRange)
+            {
+                floor.FadeTo(transparency);
+            }
+            else
+			{
+                floor.FadeTo(0);
+            }
+        }
+        else
+        {
+            floor.FadeTo(1);
+        }
     }
 
-    override protected void TriggerEffect(){
-        if(floor.isVisible){
-            floor.fadeOut();
-            room.fadeIn();
-            foreach(SpriteFader obj in objects){
-                obj.fadeIn();
+	override protected void TriggerEffect(){
+        if (!isPlayerInside)
+        {
+            foreach (var obj in objects)
+            {
+                obj.enabled = true;
             }
-            foreach(SpriteFader obj in traps){
-                obj.fadeIn(); 
+            foreach(var obj in traps){
+                obj.enabled = true;
             }
-        }else if (!floor.isVisible){
-            floor.fadeIn();
-            foreach(SpriteFader obj in objects){
-                obj.fadeOut();
+
+            foreach (var b in activatedBoundaries)
+			{
+                b.gameObject.SetActive(true);
+			}
+        }
+        else
+        {
+            foreach (var obj in objects)
+            {
+                obj.enabled = false;
             }
-            foreach(SpriteFader obj in traps){
-                obj.fadeOut(); 
+            foreach(var obj in traps){
+                obj.enabled = false;
             }
-            room.fadeOut();
-        } 
+
+            foreach (var b in activatedBoundaries)
+            {
+                b.gameObject.SetActive(false);
+            }
+        }
+        isPlayerInside = !isPlayerInside;
     }
 }

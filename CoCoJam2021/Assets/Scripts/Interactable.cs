@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
-    private bool _isPlayerInRange = false;
+    protected bool isPlayerInRange = false;
 
     // Implement this in child update function
     protected void DetectInteraction(KeyCode key){
-        if (Input.GetKeyDown(key) && _isPlayerInRange){
+        if (Input.GetKeyDown(key) && isPlayerInRange){
             TriggerEffect();
         }
     }
@@ -18,19 +18,17 @@ public class Interactable : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
 	{
-        Debug.Log(collision.gameObject.tag + " Entered " + gameObject.name);
 		if(collision.gameObject.tag == "Player")
 		{
-            _isPlayerInRange = true;
+            isPlayerInRange = true;
 		}
 	}
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        Debug.Log(collision.gameObject.tag + " Exited " + gameObject.name);
         if (collision.gameObject.tag == "Player")
         {
-            _isPlayerInRange = false;
+            isPlayerInRange = false;
         }
     }
 }

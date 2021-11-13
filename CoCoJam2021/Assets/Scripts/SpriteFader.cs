@@ -1,69 +1,64 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SpriteFader : MonoBehaviour
 {
-    public bool isVisible = true;
     [SerializeField]
     private float fadeSpeed = 1.0f;
     private SpriteRenderer _renderer;
-    private BoxCollider2D _collider;
 
-    public void fadeOut()
-	{
-        isVisible = false;
-        if(_collider){
-            _collider.enabled = false;
-        }
-	}
-
-    public void fadeIn()
-	{
-        isVisible = true;
-        
-	}
+    public IEnumerator currentFade = null;
 
 	private void Start()
 	{
         _renderer = GetComponent<SpriteRenderer>();
-        if(gameObject.tag == "Pickupable" || gameObject.tag == "Trap")_collider = GetComponent<BoxCollider2D>();
 	}
 
-	private void FixedUpdate()
-    {
-        // Fadeout
-        if(!isVisible && _renderer.color.a != 0.0f)
+    public void FadeTo(float alpha)
+	{
+        if(currentFade == null && _renderer.color.a != alpha)
 		{
-            _renderer.color = new Color
-            (
-                _renderer.color.r, 
-                _renderer.color.g, 
-                _renderer.color.b, 
-                _renderer.color.a - (Time.fixedDeltaTime * fadeSpeed)
-            );
-
-            if (_renderer.color.a < 0.0f)
-                _renderer.color = new Color(_renderer.color.r, _renderer.color.g, _renderer.color.b, 0.0f);
+            currentFade = fadeTo(alpha);
+            StartCoroutine(currentFade);
         }
+	}
 
-        // Fadein
-        if (isVisible && _renderer.color.a != 1.0f)
-        {
-            _renderer.color = new Color
-            (
-                _renderer.color.r,
-                _renderer.color.g,
-                _renderer.color.b,
-                _renderer.color.a + (Time.fixedDeltaTime * fadeSpeed)
-            );
+    private IEnumerator fadeTo(float alpha)
+	{
+        while(_renderer.color.a != alpha)
+		{
+            float delta = alpha - _renderer.color.a;
 
-            if (_renderer.color.a > 1.0f){
-                _renderer.color = new Color(_renderer.color.r, _renderer.color.g, _renderer.color.b, 1.0f);
-                if(_collider){
-                    if(!_collider.enabled)_collider.enabled = true;
-                }
+            // Fadeout
+            if (delta < 0)
+            {
+                _renderer.color = new Color
+                (
+                    _renderer.color.r,
+                    _renderer.color.g,
+                    _renderer.color.b,
+                    _renderer.color.a - (Time.fixedDeltaTime * fadeSpeed)
+                );
+
+                if (_renderer.color.a < alpha)
+                    _renderer.color = new Color(_renderer.color.r, _renderer.color.g, _renderer.color.b, alpha);
             }
+            // Fadein
+            else
+            {
+                _renderer.color = new Color
+                (
+                    _renderer.color.r,
+                    _renderer.color.g,
+                    _renderer.color.b,
+                    _renderer.color.a + (Time.fixedDeltaTime * fadeSpeed)
+                );
+
+                if (_renderer.color.a > alpha)
+                    _renderer.color = new Color(_renderer.color.r, _renderer.color.g, _renderer.color.b, alpha);
+            }
+            yield return new WaitForFixedUpdate();
         }
-    }
+        currentFade = null;
+	}
 }
