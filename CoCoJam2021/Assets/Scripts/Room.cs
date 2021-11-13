@@ -14,6 +14,10 @@ public class Room : Interactable
         room.fadeOut();
 	}
 
+    private void Update() {
+        DetectInteraction(KeyCode.E);
+    }
+
     override protected void TriggerEffect(){
         if(floor.isVisible){
             floor.fadeOut();

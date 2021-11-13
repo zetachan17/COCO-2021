@@ -6,10 +6,9 @@ public class Interactable : MonoBehaviour
 {
     private bool _isPlayerInRange = false;
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.E) && _isPlayerInRange){
+    // Implement this in child update function
+    protected void DetectInteraction(KeyCode key){
+        if (Input.GetKeyDown(key) && _isPlayerInRange){
             TriggerEffect();
         }
     }
@@ -19,7 +18,7 @@ public class Interactable : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
 	{
-        Debug.Log("Entered " + collision.gameObject.tag);
+        Debug.Log(collision.gameObject.tag + " Entered " + gameObject.name);
 		if(collision.gameObject.tag == "Player")
 		{
             _isPlayerInRange = true;
@@ -28,7 +27,7 @@ public class Interactable : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        Debug.Log("Exited " + collision.gameObject.tag);
+        Debug.Log(collision.gameObject.tag + " Exited " + gameObject.name);
         if (collision.gameObject.tag == "Player")
         {
             _isPlayerInRange = false;
