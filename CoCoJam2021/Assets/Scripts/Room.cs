@@ -8,35 +8,51 @@ public class Room : Interactable
     private SpriteFader floor;
     [SerializeField]
     private List<SpriteFader> objects;
-    private SpriteFader room;
-    
+    [SerializeField]
+    private List<Boundary> activatedBoundaries;
 
-	private void Start()
+
+    private void Start()
 	{
-        room = GetComponent<SpriteFader>();
-        room.fadeOut();
-        foreach(SpriteFader obj in objects){
-                obj.fadeOut(); 
-            }
+        foreach(SpriteFader obj in objects)
+        {
+            obj.fadeOut(); 
+        }
 	}
-
-    private void Update() {
+        
+    private void Update()
+    {
         DetectInteraction(KeyCode.E);
     }
 
-    override protected void TriggerEffect(){
-        if(floor.isVisible){
+	override protected void TriggerEffect(){
+        if (floor.isVisible)
+        {
             floor.fadeOut();
-            room.fadeIn();
-            foreach(SpriteFader obj in objects){
+
+            foreach(SpriteFader obj in objects)
+            {
                 obj.fadeIn();
             }
-        }else if (!floor.isVisible){
+
+            foreach(Boundary b in activatedBoundaries)
+			{
+                b.gameObject.SetActive(true);
+			}
+        }
+        else if (!floor.isVisible)
+        {
             floor.fadeIn();
-            foreach(SpriteFader obj in objects){
+
+            foreach(SpriteFader obj in objects)
+            {
                 obj.fadeOut();
             }
-            room.fadeOut();
-        } 
+
+            foreach (Boundary b in activatedBoundaries)
+            {
+                b.gameObject.SetActive(false);
+            }
+        }
     }
 }

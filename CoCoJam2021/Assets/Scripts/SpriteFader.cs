@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SpriteFader : MonoBehaviour
@@ -29,7 +27,8 @@ public class SpriteFader : MonoBehaviour
 	private void Start()
 	{
         _renderer = GetComponent<SpriteRenderer>();
-        if(gameObject.tag == "Pickupable")_collider = GetComponent<BoxCollider2D>();
+        if(gameObject.tag == "Pickupable")
+            _collider = GetComponent<BoxCollider2D>();
 	}
 
 	private void FixedUpdate()
@@ -38,10 +37,10 @@ public class SpriteFader : MonoBehaviour
         if(!isVisible && _renderer.color.a != 0.0f)
 		{
             _renderer.color = new Color
-            (
-                _renderer.color.r, 
-                _renderer.color.g, 
-                _renderer.color.b, 
+			(
+                _renderer.color.r,
+                _renderer.color.g,
+                _renderer.color.b,
                 _renderer.color.a - (Time.fixedDeltaTime * fadeSpeed)
             );
 
@@ -53,7 +52,7 @@ public class SpriteFader : MonoBehaviour
         if (isVisible && _renderer.color.a != 1.0f)
         {
             _renderer.color = new Color
-            (
+			(
                 _renderer.color.r,
                 _renderer.color.g,
                 _renderer.color.b,
