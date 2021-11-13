@@ -8,6 +8,7 @@ public class DialogueController : MonoBehaviour
     public TextMeshProUGUI dialogueText;
     public string[] sentences;
     private int index = 0;
+    private bool nextText = true;
 
     [SerializeField] private float dialogueSpeed;
     [SerializeField] private Animator dialogueAnimator;
@@ -26,7 +27,12 @@ public class DialogueController : MonoBehaviour
             }
             else
             {
-                NextSentence();
+                if (nextText)
+                {
+                    nextText = false;
+                    NextSentence();
+                }
+                
             }
         }
     }
@@ -39,6 +45,7 @@ public class DialogueController : MonoBehaviour
             yield return new WaitForSeconds(dialogueSpeed);
         }
         index++;
+        nextText = true;
     }
 
     void NextSentence()
