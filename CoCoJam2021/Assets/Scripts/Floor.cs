@@ -4,20 +4,19 @@ using UnityEngine;
 
 public class Floor : MonoBehaviour
 {
+    public bool isVisible = true;
     [SerializeField]
     private float fadeSpeed = 2.0f;
-
-    private bool _isVisible = true;
     private SpriteRenderer _renderer;
 
     public void fadeOut()
 	{
-        _isVisible = false;
+        isVisible = false;
 	}
 
     public void fadeIn()
 	{
-        _isVisible = true;
+        isVisible = true;
 	}
 
 	private void Start()
@@ -27,7 +26,8 @@ public class Floor : MonoBehaviour
 
 	private void FixedUpdate()
     {
-        if(!_isVisible && _renderer.color.a != 0.0f)
+        // Fadeout
+        if(!isVisible && _renderer.color.a != 0.0f)
 		{
             _renderer.color = new Color
             (
@@ -41,6 +41,19 @@ public class Floor : MonoBehaviour
                 _renderer.color = new Color(_renderer.color.r, _renderer.color.g, _renderer.color.b, 0.0f);
         }
 
-        //TODO: add the fadeIn
+        // Fadein
+        if (isVisible && _renderer.color.a != 1.0f)
+        {
+            _renderer.color = new Color
+            (
+                _renderer.color.r,
+                _renderer.color.g,
+                _renderer.color.b,
+                _renderer.color.a + (Time.fixedDeltaTime * fadeSpeed)
+            );
+
+            if (_renderer.color.a > 1.0f)
+                _renderer.color = new Color(_renderer.color.r, _renderer.color.g, _renderer.color.b, 1.0f);
+        }
     }
 }
