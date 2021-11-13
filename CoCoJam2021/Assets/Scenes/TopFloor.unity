@@ -265,6 +265,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &399379004 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 575573458, guid: 4309578d4ada17e4da8bfccb546ecd38, type: 3}
+  m_PrefabInstance: {fileID: 648670765}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9bcbda772de0f149acee1a5f95e1d1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &399379005 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8382166294220954599, guid: 4309578d4ada17e4da8bfccb546ecd38, type: 3}
+  m_PrefabInstance: {fileID: 648670765}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8754a85142c8f334f9d4c5299de19dca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -348,28 +370,67 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &575573457 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8382166294220954599, guid: 4309578d4ada17e4da8bfccb546ecd38, type: 3}
-  m_PrefabInstance: {fileID: 8382166293645907510}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8754a85142c8f334f9d4c5299de19dca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &575573458 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 575573458, guid: 4309578d4ada17e4da8bfccb546ecd38, type: 3}
-  m_PrefabInstance: {fileID: 8382166293645907510}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9bcbda772de0f149acee1a5f95e1d1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+--- !u!1001 &580416177
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8382166294220954617, guid: 4309578d4ada17e4da8bfccb546ecd38, type: 3}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 8382166294220954617, guid: 4309578d4ada17e4da8bfccb546ecd38, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -11.58
+      objectReference: {fileID: 0}
+    - target: {fileID: 8382166294220954617, guid: 4309578d4ada17e4da8bfccb546ecd38, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 8382166294220954617, guid: 4309578d4ada17e4da8bfccb546ecd38, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8382166294220954617, guid: 4309578d4ada17e4da8bfccb546ecd38, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8382166294220954617, guid: 4309578d4ada17e4da8bfccb546ecd38, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8382166294220954617, guid: 4309578d4ada17e4da8bfccb546ecd38, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8382166294220954617, guid: 4309578d4ada17e4da8bfccb546ecd38, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8382166294220954617, guid: 4309578d4ada17e4da8bfccb546ecd38, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8382166294220954617, guid: 4309578d4ada17e4da8bfccb546ecd38, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8382166294220954617, guid: 4309578d4ada17e4da8bfccb546ecd38, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8382166294220954619, guid: 4309578d4ada17e4da8bfccb546ecd38, type: 3}
+      propertyPath: m_Name
+      value: PickupableObj (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8382166294220954619, guid: 4309578d4ada17e4da8bfccb546ecd38, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4309578d4ada17e4da8bfccb546ecd38, type: 3}
 --- !u!1 &607996387
 GameObject:
   m_ObjectHideFlags: 0
@@ -442,16 +503,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   floor: {fileID: 876650233}
-<<<<<<< HEAD:CoCoJam2021/Assets/Scenes/FloorScene.unity
-  objects: []
---- !u!212 &607996391
-SpriteRenderer:
-=======
+  objects:
+  - {fileID: 2111961710}
   activatedBoundaries:
   - {fileID: 697143483}
 --- !u!4 &607996392
 Transform:
->>>>>>> Multi_Room:CoCoJam2021/Assets/Scenes/TopFloor.unity
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -464,6 +521,67 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &648670765
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8382166294220954617, guid: 4309578d4ada17e4da8bfccb546ecd38, type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8382166294220954617, guid: 4309578d4ada17e4da8bfccb546ecd38, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 11.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 8382166294220954617, guid: 4309578d4ada17e4da8bfccb546ecd38, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 8382166294220954617, guid: 4309578d4ada17e4da8bfccb546ecd38, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8382166294220954617, guid: 4309578d4ada17e4da8bfccb546ecd38, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8382166294220954617, guid: 4309578d4ada17e4da8bfccb546ecd38, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8382166294220954617, guid: 4309578d4ada17e4da8bfccb546ecd38, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8382166294220954617, guid: 4309578d4ada17e4da8bfccb546ecd38, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8382166294220954617, guid: 4309578d4ada17e4da8bfccb546ecd38, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8382166294220954617, guid: 4309578d4ada17e4da8bfccb546ecd38, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8382166294220954617, guid: 4309578d4ada17e4da8bfccb546ecd38, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8382166294220954619, guid: 4309578d4ada17e4da8bfccb546ecd38, type: 3}
+      propertyPath: m_Name
+      value: PickupableObj
+      objectReference: {fileID: 0}
+    - target: {fileID: 8382166294220954619, guid: 4309578d4ada17e4da8bfccb546ecd38, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4309578d4ada17e4da8bfccb546ecd38, type: 3}
 --- !u!1 &697143481
 GameObject:
   m_ObjectHideFlags: 0
@@ -729,6 +847,53 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &933794478
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 933794480}
+  - component: {fileID: 933794479}
+  m_Layer: 0
+  m_Name: GameController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &933794479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 933794478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 433b43f02cbeacb40b9790cec8b54d63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objects:
+  - {fileID: 399379005}
+  - {fileID: 2111961711}
+  isGameEnded: 0
+--- !u!4 &933794480
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 933794478}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1205809194
 GameObject:
   m_ObjectHideFlags: 0
@@ -785,60 +950,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61e5232b5dedcf241a9ff82227c5ca62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD:CoCoJam2021/Assets/Scenes/FloorScene.unity
-  isVisible: 1
-  fadeSpeed: 1
---- !u!1 &1161418020
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1161418022}
-  - component: {fileID: 1161418021}
-  m_Layer: 0
-  m_Name: GameController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1161418021
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1161418020}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 433b43f02cbeacb40b9790cec8b54d63, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objects:
-  - {fileID: 575573457}
-  isGameEnded: 0
---- !u!4 &1161418022
-=======
   isRightBoundary: 1
 --- !u!4 &1205809197
->>>>>>> Multi_Room:CoCoJam2021/Assets/Scenes/TopFloor.unity
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD:CoCoJam2021/Assets/Scenes/FloorScene.unity
-  m_GameObject: {fileID: 1161418020}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.44511414, y: 0.047064036, z: -0.39539224}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
-=======
   m_GameObject: {fileID: 1205809194}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 14.1, y: 0, z: 0}
@@ -846,7 +964,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
->>>>>>> Multi_Room:CoCoJam2021/Assets/Scenes/TopFloor.unity
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1223835542
 GameObject:
@@ -933,7 +1050,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1757346263
   m_SortingLayer: 1
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 3b75ff04e5f7696418f1127bbe14e635, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1041,15 +1158,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe851464e45617f4b969c40e89f76178, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD:CoCoJam2021/Assets/Scenes/FloorScene.unity
-  floor: {fileID: 876650233}
-  objects:
-  - {fileID: 575573458}
-=======
   floor: {fileID: 914363272}
+  objects:
+  - {fileID: 399379004}
   activatedBoundaries:
   - {fileID: 297657764}
->>>>>>> Multi_Room:CoCoJam2021/Assets/Scenes/TopFloor.unity
 --- !u!61 &1415885268
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1090,65 +1203,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isVisible: 1
   fadeSpeed: 1
-<<<<<<< HEAD:CoCoJam2021/Assets/Scenes/FloorScene.unity
---- !u!1001 &8382166293645907510
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 8382166294220954617, guid: 4309578d4ada17e4da8bfccb546ecd38, type: 3}
-      propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8382166294220954617, guid: 4309578d4ada17e4da8bfccb546ecd38, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1.32
-      objectReference: {fileID: 0}
-    - target: {fileID: 8382166294220954617, guid: 4309578d4ada17e4da8bfccb546ecd38, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -2.92
-      objectReference: {fileID: 0}
-    - target: {fileID: 8382166294220954617, guid: 4309578d4ada17e4da8bfccb546ecd38, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8382166294220954617, guid: 4309578d4ada17e4da8bfccb546ecd38, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8382166294220954617, guid: 4309578d4ada17e4da8bfccb546ecd38, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8382166294220954617, guid: 4309578d4ada17e4da8bfccb546ecd38, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8382166294220954617, guid: 4309578d4ada17e4da8bfccb546ecd38, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8382166294220954617, guid: 4309578d4ada17e4da8bfccb546ecd38, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8382166294220954617, guid: 4309578d4ada17e4da8bfccb546ecd38, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8382166294220954617, guid: 4309578d4ada17e4da8bfccb546ecd38, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8382166294220954619, guid: 4309578d4ada17e4da8bfccb546ecd38, type: 3}
-      propertyPath: m_Name
-      value: PickupableObj
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 4309578d4ada17e4da8bfccb546ecd38, type: 3}
-=======
 --- !u!1 &2036805752
 GameObject:
   m_ObjectHideFlags: 0
@@ -1231,4 +1285,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
->>>>>>> Multi_Room:CoCoJam2021/Assets/Scenes/TopFloor.unity
+--- !u!114 &2111961710 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 575573458, guid: 4309578d4ada17e4da8bfccb546ecd38, type: 3}
+  m_PrefabInstance: {fileID: 580416177}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9bcbda772de0f149acee1a5f95e1d1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2111961711 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8382166294220954599, guid: 4309578d4ada17e4da8bfccb546ecd38, type: 3}
+  m_PrefabInstance: {fileID: 580416177}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8754a85142c8f334f9d4c5299de19dca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
