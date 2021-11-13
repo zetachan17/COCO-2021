@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Floor : MonoBehaviour
+public class SpriteFader : MonoBehaviour
 {
     public bool isVisible = true;
     [SerializeField]
-    private float fadeSpeed = 2.0f;
+    private float fadeSpeed = 1.0f;
     private SpriteRenderer _renderer;
 
     public void fadeOut()
