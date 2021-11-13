@@ -8,20 +8,28 @@ public class SpriteFader : MonoBehaviour
     [SerializeField]
     private float fadeSpeed = 1.0f;
     private SpriteRenderer _renderer;
+    private BoxCollider2D _collider;
 
     public void fadeOut()
 	{
         isVisible = false;
+        if(_collider){
+            _collider.enabled = false;
+        }
 	}
 
     public void fadeIn()
 	{
         isVisible = true;
+        if(_collider){
+            _collider.enabled = true;
+        }
 	}
 
 	private void Start()
 	{
         _renderer = GetComponent<SpriteRenderer>();
+        if(gameObject.tag == "Pickupable")_collider = GetComponent<BoxCollider2D>();
 	}
 
 	private void FixedUpdate()

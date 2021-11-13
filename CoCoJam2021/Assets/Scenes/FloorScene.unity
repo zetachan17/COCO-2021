@@ -206,6 +206,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &575573458 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 575573458, guid: 4309578d4ada17e4da8bfccb546ecd38, type: 3}
+  m_PrefabInstance: {fileID: 8382166293645907510}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9bcbda772de0f149acee1a5f95e1d1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &607996387
 GameObject:
   m_ObjectHideFlags: 0
@@ -279,6 +290,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   floor: {fileID: 876650233}
+  objects: []
 --- !u!212 &607996391
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -685,6 +697,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   floor: {fileID: 876650233}
+  objects:
+  - {fileID: 575573458}
 --- !u!61 &1415885268
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -738,11 +752,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8382166294220954617, guid: 4309578d4ada17e4da8bfccb546ecd38, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.9
+      value: -1.32
       objectReference: {fileID: 0}
     - target: {fileID: 8382166294220954617, guid: 4309578d4ada17e4da8bfccb546ecd38, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.26
+      value: -2.92
       objectReference: {fileID: 0}
     - target: {fileID: 8382166294220954617, guid: 4309578d4ada17e4da8bfccb546ecd38, type: 3}
       propertyPath: m_LocalPosition.z
