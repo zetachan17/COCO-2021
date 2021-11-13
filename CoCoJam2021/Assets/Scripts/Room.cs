@@ -12,6 +12,7 @@ public class Room : MonoBehaviour
 	private void Start()
 	{
         room = GetComponent<SpriteFader>();
+        room.fadeOut();
 	}
 
 	private void Update()
