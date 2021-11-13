@@ -21,15 +21,13 @@ public class SpriteFader : MonoBehaviour
     public void fadeIn()
 	{
         isVisible = true;
-        if(_collider){
-            _collider.enabled = true;
-        }
+        
 	}
 
 	private void Start()
 	{
         _renderer = GetComponent<SpriteRenderer>();
-        if(gameObject.tag == "Pickupable")_collider = GetComponent<BoxCollider2D>();
+        if(gameObject.tag == "Pickupable" || gameObject.tag == "Trap")_collider = GetComponent<BoxCollider2D>();
 	}
 
 	private void FixedUpdate()
@@ -60,8 +58,12 @@ public class SpriteFader : MonoBehaviour
                 _renderer.color.a + (Time.fixedDeltaTime * fadeSpeed)
             );
 
-            if (_renderer.color.a > 1.0f)
+            if (_renderer.color.a > 1.0f){
                 _renderer.color = new Color(_renderer.color.r, _renderer.color.g, _renderer.color.b, 1.0f);
+                if(_collider){
+                    if(!_collider.enabled)_collider.enabled = true;
+                }
+            }
         }
     }
 }

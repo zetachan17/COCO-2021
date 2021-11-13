@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8382166294220954599}
   - component: {fileID: 575573458}
   m_Layer: 0
-  m_Name: PickupableObj
+  m_Name: PickupableObjPrefab
   m_TagString: Pickupable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

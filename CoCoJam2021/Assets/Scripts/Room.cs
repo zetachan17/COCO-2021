@@ -8,6 +8,8 @@ public class Room : Interactable
     private SpriteFader floor;
     [SerializeField]
     private List<SpriteFader> objects;
+    [SerializeField]
+    private List<SpriteFader> traps;
     private SpriteFader room;
     
 
@@ -16,8 +18,11 @@ public class Room : Interactable
         room = GetComponent<SpriteFader>();
         room.fadeOut();
         foreach(SpriteFader obj in objects){
-                obj.fadeOut(); 
-            }
+            obj.fadeOut(); 
+        }
+        foreach(SpriteFader obj in traps){
+            obj.fadeOut(); 
+        }
 	}
 
     private void Update() {
@@ -31,10 +36,16 @@ public class Room : Interactable
             foreach(SpriteFader obj in objects){
                 obj.fadeIn();
             }
+            foreach(SpriteFader obj in traps){
+                obj.fadeIn(); 
+            }
         }else if (!floor.isVisible){
             floor.fadeIn();
             foreach(SpriteFader obj in objects){
                 obj.fadeOut();
+            }
+            foreach(SpriteFader obj in traps){
+                obj.fadeOut(); 
             }
             room.fadeOut();
         } 
