@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Pickupable
+  - Trap
   layers:
   - Default
   - TransparentFX
@@ -39,11 +40,14 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 3338381087
+    locked: 0
+  - name: Interactable
+    uniqueID: 974512119
+    locked: 0
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Interactible
-    uniqueID: 974512119
     locked: 0
   - name: Player
     uniqueID: 1757346263

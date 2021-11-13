@@ -9,6 +9,8 @@ public class Room : Interactable
     [SerializeField]
     private List<Collider2D> objects;
     [SerializeField]
+    private List<Collider2D> traps;
+    [SerializeField]
     private List<Boundary> activatedBoundaries;
 
     private bool isPlayerInside = false;
@@ -20,6 +22,9 @@ public class Room : Interactable
 	{
         foreach(var obj in objects)
         {
+            obj.enabled = false; 
+        }
+        foreach(var obj in traps){
             obj.enabled = false; 
         }
 	}
@@ -52,6 +57,9 @@ public class Room : Interactable
             {
                 obj.enabled = true;
             }
+            foreach(var obj in traps){
+                obj.enabled = true;
+            }
 
             foreach (var b in activatedBoundaries)
 			{
@@ -62,6 +70,9 @@ public class Room : Interactable
         {
             foreach (var obj in objects)
             {
+                obj.enabled = false;
+            }
+            foreach(var obj in traps){
                 obj.enabled = false;
             }
 
