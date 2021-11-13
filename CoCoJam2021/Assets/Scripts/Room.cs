@@ -11,6 +11,7 @@ public class Room : Interactable
 	private void Start()
 	{
         room = GetComponent<SpriteFader>();
+        room.fadeOut();
 	}
 
     override protected void TriggerEffect(){
