@@ -7,52 +7,67 @@ public class Room : Interactable
     [SerializeField]
     private SpriteFader floor;
     [SerializeField]
-    private List<SpriteFader> objects;
+    private List<Collider2D> objects;
     [SerializeField]
     private List<Boundary> activatedBoundaries;
+
+    private bool isPlayerInside = false;
 
 
     private void Start()
 	{
-        foreach(SpriteFader obj in objects)
+        foreach(var obj in objects)
         {
-            obj.fadeOut(); 
+            obj.enabled = false; 
         }
 	}
         
     private void Update()
     {
         DetectInteraction(KeyCode.E);
+
+        if (isPlayerInside)
+        {
+            if (isPlayerInRange)
+            {
+                floor.FadeTo(0.5f);
+            }
+            else
+			{
+                floor.FadeTo(0);
+            }
+        }
+        else
+        {
+            floor.FadeTo(1);
+        }
     }
 
 	override protected void TriggerEffect(){
-        if (floor.isVisible)
+        if (!isPlayerInside)
         {
-            floor.fadeOut();
-
-            foreach(SpriteFader obj in objects)
+            foreach (var obj in objects)
             {
-                obj.fadeIn();
+                obj.enabled = true;
             }
 
-            foreach(Boundary b in activatedBoundaries)
+            foreach (var b in activatedBoundaries)
 			{
                 b.gameObject.SetActive(true);
 			}
         }
-        else if (!floor.isVisible)
+        else
         {
-            floor.fadeIn();
-
-            foreach(SpriteFader obj in objects)
+            foreach (var obj in objects)
             {
-                obj.fadeOut();
+                obj.enabled = false;
             }
 
-            foreach (Boundary b in activatedBoundaries)
+            foreach (var b in activatedBoundaries)
             {
                 b.gameObject.SetActive(false);
             }
         }
+        isPlayerInside = !isPlayerInside;
     }
 }

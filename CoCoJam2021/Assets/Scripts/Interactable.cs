@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
-    private bool isPlayerInRange = false;
+    protected bool isPlayerInRange = false;
 
     // Implement this in child update function
     protected void DetectInteraction(KeyCode key){

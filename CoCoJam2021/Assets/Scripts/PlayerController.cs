@@ -32,5 +32,10 @@ public class PlayerController : MonoBehaviour
         {
             acceleration = 0;
         }
+
+        if(Input.GetKeyDown(KeyCode.Q))
+		{
+            GameController.instance.ChangeFloor(1);
+		}
     }
 }
