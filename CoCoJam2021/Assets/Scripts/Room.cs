@@ -6,21 +6,27 @@ public class Room : Interactable
 {
     [SerializeField]
     private SpriteFader floor;
-    private SpriteFader room;
+    [SerializeField]
+    private List<Boundary> activatedBoundaries;
 
-	private void Start()
-	{
-        room = GetComponent<SpriteFader>();
-        room.fadeOut();
-	}
-
-    override protected void TriggerEffect(){
-        if(floor.isVisible){
+	override protected void TriggerEffect(){
+        if (floor.isVisible)
+        {
             floor.fadeOut();
-            room.fadeIn();
-        }else if (!floor.isVisible){
+
+            foreach(Boundary b in activatedBoundaries)
+			{
+                b.gameObject.SetActive(true);
+			}
+        }
+        else if (!floor.isVisible)
+        {
             floor.fadeIn();
-            room.fadeOut();
-        } 
+
+            foreach (Boundary b in activatedBoundaries)
+            {
+                b.gameObject.SetActive(false);
+            }
+        }
     }
 }
