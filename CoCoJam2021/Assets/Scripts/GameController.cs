@@ -11,9 +11,14 @@ public class GameController : MonoBehaviour
     private bool isGameEnded = false;
 
     [SerializeField]
+    private SpriteFader floorTransition;
+    [SerializeField]
     private List<float> floorPositions;
+    private int currentFloor = 0;
     public PlayerController player;
     public Camera _camera;
+    public float transitionTime = 2.0f;
+    private IEnumerator transition = null;
 
     // Start is called before the first frame update
     void Start()
@@ -32,17 +37,48 @@ public class GameController : MonoBehaviour
             obj.AssignGame(this);
         }
 
-        ChangeFloor(0);
-    }
-
-    public void ChangeFloor(int floor)
-	{
-        player.transform.position = new Vector3(floorPositions[floor], player.transform.position.y, 0);
-        _camera.transform.position = new Vector3(floorPositions[floor], _camera.transform.position.y, -10);
+        SetFloor(0);
     }
 
     public void RemoveObject(PickupableObj obj){
         objects.Remove(obj);
-        if(objects.Count == 0)isGameEnded = true;
+        if(objects.Count == 0)
+            isGameEnded = true;
+    }
+
+    public void ChangeFloor(int floor)
+	{
+        if (transition == null && floor != currentFloor)
+        {
+            transition = changeFloor(floor);
+            StartCoroutine(transition);
+        }
+    }
+    private IEnumerator changeFloor(int floor)
+	{
+        // Fade to black
+        floorTransition.FadeTo(1);
+        while(floorTransition.currentFade != null)
+		{
+            yield return new WaitForFixedUpdate();
+        }
+        
+        // Teleport the player
+        SetFloor(floor);
+
+        // Fade to normal
+        floorTransition.FadeTo(0);
+        while (floorTransition.currentFade != null)
+        {
+            yield return new WaitForFixedUpdate();
+        }
+        transition = null;
+    }
+
+    private void SetFloor(int floor)
+	{
+        player.transform.position = new Vector3(floorPositions[floor], player.transform.position.y, 0);
+        _camera.transform.position = new Vector3(floorPositions[floor], _camera.transform.position.y, -10);
+        currentFloor = floor;
     }
 }
