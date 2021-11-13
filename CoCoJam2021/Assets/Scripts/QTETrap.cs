@@ -6,6 +6,11 @@ using TMPro;
 public class QTETrap : Trap
 {
     [SerializeField]
+    private Transform pivotPoint;
+    [SerializeField]
+    private bool swingLeft = false;
+    private float amountRotated = 0.0f;
+    [SerializeField]
     private GameObject uiObj;
     [SerializeField]
     private TMP_Text timerTxt;
@@ -34,6 +39,19 @@ public class QTETrap : Trap
             if(timer >= time){
                 TrapFail();
             }
+            float stepAmount = (90.0f * Time.deltaTime)/time;
+            amountRotated += stepAmount;
+            if(amountRotated <= 90.0f){
+                if(swingLeft){
+                    pivotPoint.Rotate(0,0,-stepAmount);
+                }else{
+                    pivotPoint.Rotate(0,0,stepAmount);
+                }
+            }
         }
+    }
+
+    public float getTime(){
+        return time;
     }
 }
