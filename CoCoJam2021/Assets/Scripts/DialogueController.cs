@@ -52,21 +52,11 @@ public class DialogueController : MonoBehaviour
 		}
     }
 
-	// Update is called once per frame
-	//void Update()
- //   {
- //       // Make sure to follow the camera
- //       float camPos = Camera.main.transform.position.x;
- //       if(transform.position.x != camPos)
-	//	{
- //           transform.position = new Vector3(camPos, transform.position.y, transform.position.z);
-	//	}
- //   }
-
     public void WriteDialog(List<DialogLine> dialog)
 	{
         if(!dialogInSession)
 		{
+            dialogInSession = true;
             foreach(DialogLine dl in dialog)
 			{
                 this.dialog.Add(new DialogLine(dl.line, dl.isCat));
