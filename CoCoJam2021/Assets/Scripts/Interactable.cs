@@ -7,24 +7,32 @@ public class Interactable : MonoBehaviour
     [SerializeField]
     protected bool isLocked = false;
 
+    [SerializeField]
+    private List<DialogLine> dialog;
+
     protected bool isPlayerInRange = false;
 
     // Implement this in child update function
-    protected void DetectInteraction(KeyCode key){
-        if (Input.GetKeyDown(key) && isPlayerInRange){
+    protected void DetectInteraction(KeyCode key) {
+        if (Input.GetKeyDown(key) && isPlayerInRange) {
             TriggerEffect();
         }
     }
 
     // Place effect of activating a trigger here
-    protected virtual void TriggerEffect(){}
+    protected virtual void TriggerEffect() {}
 
     private void OnTriggerEnter2D(Collider2D collision)
 	{
 		if(collision.gameObject.tag == "Player")
 		{
             isPlayerInRange = true;
-		}
+            
+            if(dialog.Count != 0)
+			{
+                DialogueController.instance.WriteDialog(dialog);
+            }
+        }
 	}
 
     private void OnTriggerExit2D(Collider2D collision)
