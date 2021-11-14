@@ -52,8 +52,6 @@ public class GameController : MonoBehaviour
     }
 
     public void KillPlayer(){
-        Debug.Log("Killing player on floor: " + currentFloor);
-        Debug.Log("transition? " + transition == null);
         player.Die();
         ChangeFloor(2,new Vector2(100, -1.5f));
     }

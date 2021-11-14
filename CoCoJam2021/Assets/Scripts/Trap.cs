@@ -8,6 +8,8 @@ public class Trap : MonoBehaviour
     protected bool isCompleted = false;
     protected bool isStarted = false;
     [SerializeField]
+    private SpriteFader monsterSprite;
+    [SerializeField]
     private AudioSource audioSource;
     [SerializeField]
     private AudioClip start;
@@ -21,6 +23,9 @@ public class Trap : MonoBehaviour
         Debug.Log("Trap completed");
         audioSource.PlayOneShot(success);
         gameObject.SetActive(false);
+        if(monsterSprite){
+            monsterSprite.FadeTo(0);
+        }
     }
     protected void TrapFail(){
         Debug.Log("Trap failed");
@@ -35,6 +40,9 @@ public class Trap : MonoBehaviour
 		{
             audioSource.PlayOneShot(start);
             _isPlayerInRange = true;
+            if(monsterSprite){
+                monsterSprite.FadeTo(1);
+            }
 		}
 	}
 }
