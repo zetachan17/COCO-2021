@@ -16,6 +16,8 @@ public class Room : Interactable
     private List<Collider2D> traps;
     [SerializeField]
     private List<Boundary> activatedBoundaries;
+    [SerializeField]
+    private bool isLocked = false;
 
     private bool isPlayerInside = false;
 
@@ -60,26 +62,31 @@ public class Room : Interactable
     {
         if (!isPlayerInside)
         {
-            corridorObjects.SetActive(false);
-            wall.FadeTo(0);
+            if(!isLocked){ //Is the room unlocked
+                corridorObjects.SetActive(false);
+                wall.FadeTo(0);
 
-            foreach (var obj in objects)
-            {
-                obj.enabled = true;
-            }
-            foreach (var obj in traps)
-            {
-                obj.enabled = true;
-            }
+                foreach (var obj in objects)
+                {
+                    obj.enabled = true;
+                }
+                foreach (var obj in traps)
+                {
+                    obj.enabled = true;
+                }
 
-            foreach (var b in activatedBoundaries)
-            {
-                b.gameObject.SetActive(true);
+                foreach (var b in activatedBoundaries)
+                {
+                    b.gameObject.SetActive(true);
+                }
+                isPlayerInside = true;
+                // Animation
+                player.animator.SetBool("IsEntering", true);
+                StartCoroutine(Wait());
+            }else{
+                Debug.Log("Room is locked");
+                // room is locked animation
             }
-
-            // Animation
-            player.animator.SetBool("IsEntering", true);
-            StartCoroutine(Wait());
         }
         else
         {
@@ -99,13 +106,18 @@ public class Room : Interactable
             {
                 b.gameObject.SetActive(false);
             }
+            isPlayerInside = false;
         }
-        isPlayerInside = !isPlayerInside;
+        //isPlayerInside = !isPlayerInside;
     }
 
     IEnumerator Wait()
     {
         yield return new WaitForSeconds(0.1f);
         player.animator.SetBool("IsEntering", false);
+    }
+
+    public void Unlock(){
+        isLocked = false;
     }
 }
