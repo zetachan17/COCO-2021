@@ -100,6 +100,8 @@ MonoBehaviour:
   isLocked: 0
   goesToFloor: 0
   destination: {x: 0, y: 0}
+  audioSource: {fileID: 0}
+  audioClip: {fileID: 8300000, guid: 3cd8cd39003540440a78d107dacacfd1, type: 3}
 --- !u!114 &3213865728977681976
 MonoBehaviour:
   m_ObjectHideFlags: 0

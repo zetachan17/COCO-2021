@@ -6,6 +6,10 @@ public class Stairs : Interactable
 {
 	public int goesToFloor = 0;
     public Vector2 destination;
+    [SerializeField]
+    private AudioSource audioSource;
+    [SerializeField]
+    private AudioClip audioClip;
 
 	private void Update()
     {
@@ -14,5 +18,6 @@ public class Stairs : Interactable
     protected override void TriggerEffect()
 	{
 		GameController.instance.ChangeFloor(goesToFloor, destination);
+        audioSource.PlayOneShot(audioClip, 0.5f);
 	}
 }

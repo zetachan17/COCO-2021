@@ -611,6 +611,8 @@ MonoBehaviour:
   isLocked: 0
   goesToFloor: 3
   destination: {x: 161, y: 12.5}
+  audioSource: {fileID: 0}
+  audioClip: {fileID: 0}
 --- !u!61 &161540133 stripped
 BoxCollider2D:
   m_CorrespondingSourceObject: {fileID: 8382166294220954598, guid: 4309578d4ada17e4da8bfccb546ecd38, type: 3}
@@ -1910,6 +1912,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 153434647}
     m_Modifications:
     - target: {fileID: 5695695224948332370, guid: 03c64424fc6fe1b4ebdeba5cdab22658, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 933794482}
+    - target: {fileID: 5695695224948332370, guid: 03c64424fc6fe1b4ebdeba5cdab22658, type: 3}
       propertyPath: goesToFloor
       value: 2
       objectReference: {fileID: 0}
@@ -2712,6 +2718,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5277553451745021869, guid: 1c9cb29f140a81d4a8b3b4762347c87a, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 933794482}
     - target: {fileID: 5277553451745021869, guid: 1c9cb29f140a81d4a8b3b4762347c87a, type: 3}
       propertyPath: destination.x
       value: 10
@@ -4141,8 +4151,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 43e4acababb00b842806f0bcb106b822, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_PlayOnAwake: 0
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -5557,6 +5567,8 @@ MonoBehaviour:
   isLocked: 0
   goesToFloor: 2
   destination: {x: 111, y: -1.5}
+  audioSource: {fileID: 0}
+  audioClip: {fileID: 0}
 --- !u!1001 &2011219079
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6190,6 +6202,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5277553451745021869, guid: 1c9cb29f140a81d4a8b3b4762347c87a, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 933794482}
+    - target: {fileID: 5277553451745021869, guid: 1c9cb29f140a81d4a8b3b4762347c87a, type: 3}
       propertyPath: goesToFloor
       value: 1
       objectReference: {fileID: 0}
@@ -6348,6 +6364,10 @@ PrefabInstance:
       propertyPath: m_Size.x
       value: 0.41
       objectReference: {fileID: 0}
+    - target: {fileID: 5695695224948332370, guid: 03c64424fc6fe1b4ebdeba5cdab22658, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 933794482}
     - target: {fileID: 5695695224948332370, guid: 03c64424fc6fe1b4ebdeba5cdab22658, type: 3}
       propertyPath: goesToFloor
       value: 1
