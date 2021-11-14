@@ -31,7 +31,7 @@ public class Trap : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
 	{
         Debug.Log(collision.gameObject.tag + " Entered " + gameObject.name);
-		if(collision.gameObject.tag == "Player")
+		if(collision.gameObject.tag == "Player" && !_isPlayerInRange)
 		{
             audioSource.PlayOneShot(start);
             _isPlayerInRange = true;
