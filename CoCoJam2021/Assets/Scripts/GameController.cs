@@ -11,6 +11,8 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private bool isGameEnded = false;
 
+    [SerializeField] GameObject background;
+
     [SerializeField]
     private SpriteFader floorTransition;
     private int currentFloor = 2;
@@ -47,8 +49,8 @@ public class GameController : MonoBehaviour
 
     public void RemoveObject(PickupableObj obj){
         objects.Remove(obj);
-        if(objects.Count == 0)
-            isGameEnded = true;
+        if (objects.Count == 0)
+            background.SetActive(true);
     }
 
     public void KillPlayer(){
