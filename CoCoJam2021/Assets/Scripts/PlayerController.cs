@@ -15,9 +15,6 @@ public class PlayerController : MonoBehaviour
     public bool canMoveLeft = true;
     public bool canMoveRight = true;
 
-    [SerializeField]
-    private Sprite idleSprite;
-
     private SpriteRenderer spriteRenderer;
     public Animator animator;
 
