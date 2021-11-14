@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
+    [SerializeField]
+    protected bool isLocked = false;
+
     protected bool isPlayerInRange = false;
 
     // Implement this in child update function
@@ -30,5 +33,10 @@ public class Interactable : MonoBehaviour
         {
             isPlayerInRange = false;
         }
+    }
+
+    public void Unlock()
+    {
+        isLocked = false;
     }
 }

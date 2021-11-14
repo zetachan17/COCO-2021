@@ -16,8 +16,6 @@ public class Room : Interactable
     private List<Collider2D> traps;
     [SerializeField]
     private List<Boundary> activatedBoundaries;
-    [SerializeField]
-    private bool isLocked = false;
 
     private bool isPlayerInside = false;
 
@@ -115,9 +113,5 @@ public class Room : Interactable
     {
         yield return new WaitForSeconds(0.1f);
         player.animator.SetBool("IsEntering", false);
-    }
-
-    public void Unlock(){
-        isLocked = false;
     }
 }

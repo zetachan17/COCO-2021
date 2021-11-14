@@ -6,7 +6,7 @@ public class PickupableObj : Interactable
 {
     private GameController gameInstance;
     [SerializeField]
-    private Room lockedRoom;
+    private Interactable lockedInteractable;
 
     private void Update() {
         DetectInteraction(KeyCode.E);
@@ -16,8 +16,9 @@ public class PickupableObj : Interactable
         gameInstance.RemoveObject(this);
         gameObject.SetActive(false);
         Debug.Log("Picked up: " + gameObject.name);
-        if(lockedRoom){
-            lockedRoom.Unlock();
+        if(lockedInteractable)
+        {
+            lockedInteractable.Unlock();
         }
     }
 
