@@ -20,9 +20,7 @@ public class GameController : MonoBehaviour
     public float transitionTime = 2.0f;
     private IEnumerator transition = null;
 
-    // Start is called before the first frame update
-    void Start()
-    {
+    private void Awake() {
         // Singleton
         if(instance == null)
 		{
@@ -32,6 +30,10 @@ public class GameController : MonoBehaviour
 		{
             Destroy(this.gameObject);
 		}
+    }
+    // Start is called before the first frame update
+    void Start()
+    {
         rooms = FindObjectsOfType(typeof(Room)) as Room[];
         SetFloor(currentFloor, new Vector2(100, -1.5f));
 

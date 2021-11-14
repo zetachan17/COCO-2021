@@ -37,9 +37,8 @@ public class DialogueController : MonoBehaviour
 
     private bool dialogInSession = false;
 
-	private void Start()
-	{
-		if(instance == null)
+    private void Awake() {
+        if(instance == null)
 		{
             instance = this;
 		}
@@ -47,7 +46,7 @@ public class DialogueController : MonoBehaviour
 		{
             Destroy(gameObject);
 		}
-	}
+    }
 
 	// Update is called once per frame
 	void Update()
