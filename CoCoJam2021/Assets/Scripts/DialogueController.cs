@@ -5,14 +5,19 @@ using TMPro;
 
 public class DialogueController : MonoBehaviour
 {
+    [HideInInspector]
+    public static DialogueController instance = null;
+
     public TextMeshProUGUI dialogueText;
     [SerializeField]
-    public List<DialogLine> sentences;
+    public List<DialogLine> dialog;
 
     [SerializeField]
     private float dialogueSpeed = 0.1f;
     [SerializeField]
     private float dialogueTimer = 0.5f;
+    [SerializeField]
+    private float fadeTimer = 1.0f;
 
     [SerializeField]
     private Animator dialogueAnimator;
@@ -28,10 +33,24 @@ public class DialogueController : MonoBehaviour
     private Sprite girlOpened;
     [SerializeField]
     private float animationDelay;
+    private IEnumerator currentDialogBoxAnimation = null;
 
+    private bool dialogInSession = false;
 
-    // Update is called once per frame
-    void Update()
+	private void Start()
+	{
+		if(instance == null)
+		{
+            instance = this;
+		}
+        else
+		{
+            Destroy(gameObject);
+		}
+	}
+
+	// Update is called once per frame
+	void Update()
     {
         // Make sure to follow the camera
         float camPos = Camera.main.transform.position.x;
@@ -41,30 +60,56 @@ public class DialogueController : MonoBehaviour
 		}
     }
 
-    IEnumerator WriteSentence()
-    {
-        foreach(char character in sentences[0].line.ToCharArray())
-        {
-            dialogueText.text += character;
-            yield return new WaitForSeconds(dialogueSpeed);
+    public void WriteDialog(List<DialogLine> dialog)
+	{
+        if(!dialogInSession)
+		{
+            this.dialog = dialog;
+            StartCoroutine(writeDialog());
         }
-        sentences.RemoveAt(0);
-        yield return new WaitForSeconds(dialogueTimer);
+	}
+
+    IEnumerator writeDialog()
+    {
+        AnimateCharacter(dialog[0].isCat);
+
+        dialogueAnimator.SetTrigger("Enter");
+        yield return new WaitForSeconds(fadeTimer);
+
+        while (dialog.Count != 0) {
+            AnimateCharacter(dialog[0].isCat);
+
+            foreach (char character in dialog[0].line.ToCharArray())
+            {
+                dialogueText.text += character;
+                yield return new WaitForSeconds(dialogueSpeed);
+            }
+            dialog.RemoveAt(0);
+
+            yield return new WaitForSeconds(dialogueTimer);
+            dialogueText.text = "";
+        }
+
+        StopCoroutine(currentDialogBoxAnimation);
+        dialogueText.text = "";
+        dialogueAnimator.SetTrigger("Exit");
+        yield return new WaitForSeconds(fadeTimer);
+
+        dialogInSession = false;
     }
 
-    void NextSentence()
-    {
-        if (sentences.Count != 0)
-        {
-            dialogueText.text = "";
-            StartCoroutine(WriteSentence());
-        }
+    private void AnimateCharacter(bool isCat)
+	{
+        if (currentDialogBoxAnimation != null)
+            StopCoroutine(currentDialogBoxAnimation);
+
+        if (isCat)
+            currentDialogBoxAnimation = animateCat();
         else
-        {
-            dialogueText.text = "";
-            dialogueAnimator.SetTrigger("Exit");
-        }
-    }
+            currentDialogBoxAnimation = animateGirl();
+
+        StartCoroutine(currentDialogBoxAnimation);
+	}
 
     private IEnumerator animateCat()
 	{
