@@ -12,9 +12,8 @@ public class GameController : MonoBehaviour
 
     [SerializeField]
     private SpriteFader floorTransition;
-    [SerializeField]
-    private List<float> floorPositions;
-    private int currentFloor = 0;
+    private int currentFloor = 2;
+
     public PlayerController player;
     public Camera _camera;
     public float transitionTime = 2.0f;
@@ -37,7 +36,7 @@ public class GameController : MonoBehaviour
             obj.AssignGame(this);
         }
 
-        SetFloor(0);
+        SetFloor(currentFloor, new Vector2(100, -1.5f));
     }
 
     public void RemoveObject(PickupableObj obj){
@@ -46,15 +45,15 @@ public class GameController : MonoBehaviour
             isGameEnded = true;
     }
 
-    public void ChangeFloor(int floor)
+    public void ChangeFloor(int floor, Vector2 destination)
 	{
         if (transition == null && floor != currentFloor)
         {
-            transition = changeFloor(floor);
+            transition = changeFloor(floor, destination);
             StartCoroutine(transition);
         }
     }
-    private IEnumerator changeFloor(int floor)
+    private IEnumerator changeFloor(int floor, Vector2 destination)
 	{
         // Fade to black
         floorTransition.FadeTo(1);
@@ -64,7 +63,7 @@ public class GameController : MonoBehaviour
         }
         
         // Teleport the player
-        SetFloor(floor);
+        SetFloor(floor, destination);
 
         // Fade to normal
         floorTransition.FadeTo(0);
@@ -75,10 +74,12 @@ public class GameController : MonoBehaviour
         transition = null;
     }
 
-    private void SetFloor(int floor)
+    private void SetFloor(int floor, Vector2 destination)
 	{
-        player.transform.position = new Vector3(floorPositions[floor], player.transform.position.y, 0);
-        _camera.transform.position = new Vector3(floorPositions[floor], _camera.transform.position.y, -10);
+
+        player.transform.position = new Vector3(destination.x, destination.y, 0);
+
+        _camera.transform.position = new Vector3(floor * 50, _camera.transform.position.y, -10);
         currentFloor = floor;
     }
 }

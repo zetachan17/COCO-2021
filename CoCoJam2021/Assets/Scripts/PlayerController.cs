@@ -56,6 +56,7 @@ public class PlayerController : MonoBehaviour
 
             transform.Translate(moveValue*characterSpeed*acceleration*Time.deltaTime,0,0);
             animator.SetFloat("Speed", Mathf.Abs(moveValue * characterSpeed * acceleration * Time.deltaTime));
+
             timer += Time.deltaTime;
             if(timer >= timeBetweensteps){
                 audioSource.Play();

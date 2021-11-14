@@ -6,8 +6,11 @@ public class Stairs : Interactable
 {
     private SpriteFader stairs;
     [SerializeField]
+    private bool isForeground = true;
+    [SerializeField]
     private float transparency = 0.5f;
 	public int goesToFloor = 0;
+    public Vector2 destination;
 
 	private void Start()
 	{
@@ -18,7 +21,7 @@ public class Stairs : Interactable
     {
         DetectInteraction(KeyCode.E);
 
-        if (isPlayerInRange)
+        if (isForeground && isPlayerInRange)
         {
             stairs.FadeTo(transparency);
         }
@@ -30,6 +33,6 @@ public class Stairs : Interactable
     protected override void TriggerEffect()
 	{
         Debug.Log("asked to change floor");
-		GameController.instance.ChangeFloor(goesToFloor);
+		GameController.instance.ChangeFloor(goesToFloor, destination);
 	}
 }

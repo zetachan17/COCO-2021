@@ -6,7 +6,7 @@ public class PickupableObj : Interactable
 {
     private GameController gameInstance;
     [SerializeField]
-    private Interactable lockedInteractable;
+    protected Interactable lockedInteractable;
     [SerializeField]
     private AudioSource audioSource;
     [SerializeField]
@@ -16,14 +16,14 @@ public class PickupableObj : Interactable
         DetectInteraction(KeyCode.E);
     }
 
-    override protected void TriggerEffect(){
+    override protected void TriggerEffect() {
         gameInstance.RemoveObject(this);
         gameObject.SetActive(false);
         Debug.Log("Picked up: " + gameObject.name);
         if(lockedInteractable)
         {
             lockedInteractable.Unlock();
-        audioSource.PlayOneShot(audioClip);
+            audioSource.PlayOneShot(audioClip);
         }
     }
 

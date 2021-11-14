@@ -5,8 +5,6 @@ using UnityEngine;
 public class Room : Interactable
 {
     [SerializeField]
-    private bool isLocked = false;
-    [SerializeField]
     private SpriteFader wall;
     [SerializeField]
     private SpriteFader door;
@@ -33,8 +31,6 @@ public class Room : Interactable
 
     public float transparency = 0.5f;
 
-    
-
     private void Start()
 	{
         foreach(var obj in objects)
@@ -50,20 +46,23 @@ public class Room : Interactable
     {
         DetectInteraction(KeyCode.E);
 
-        if (isPlayerInside && door != null)
-        {
-            if (isPlayerInRange)
+        if(door != null)
+		{
+            if (isPlayerInside)
             {
-                door.FadeTo(transparency);
+                if (isPlayerInRange)
+                {
+                    door.FadeTo(transparency);
+                }
+                else
+                {
+                    door.FadeTo(0);
+                }
             }
             else
-			{
-                door.FadeTo(0);
+            {
+                door.FadeTo(1);
             }
-        }
-        else
-        {
-            door.FadeTo(1);
         }
     }
 
@@ -118,7 +117,10 @@ public class Room : Interactable
                 b.gameObject.SetActive(false);
             }
             isPlayerInside = false;
-            StartCoroutine(AudioWait());
+            if(doorOpen != null)
+			{
+                StartCoroutine(AudioWait());
+            }
         }
         //isPlayerInside = !isPlayerInside;
     }
