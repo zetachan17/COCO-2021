@@ -14,7 +14,7 @@ public class Interactable : MonoBehaviour
 
     // Implement this in child update function
     protected void DetectInteraction(KeyCode key) {
-        if (Input.GetKeyDown(key) && isPlayerInRange) {
+        if (Input.GetKeyDown(key) && isPlayerInRange && !isLocked) {
             TriggerEffect();
         }
     }
