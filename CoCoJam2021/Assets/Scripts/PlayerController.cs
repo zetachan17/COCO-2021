@@ -60,5 +60,18 @@ public class PlayerController : MonoBehaviour
             rb.constraints = RigidbodyConstraints2D.None;
             animator.SetTrigger("IsDead");
         }
+
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            animator.SetBool("IsCrouching", true);
+            StartCoroutine(Wait());
+        }
+
+    }
+
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(0.1f);
+        animator.SetBool("IsCrouching", false);
     }
 }
