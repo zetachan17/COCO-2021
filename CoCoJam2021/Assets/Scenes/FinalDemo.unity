@@ -335,14 +335,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4377309229316194576, guid: da9b33fa434079e4f9e6749a86e6f2fb, type: 3}
-      propertyPath: m_SpriteTilingProperty.newSize.x
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4377309229316194576, guid: da9b33fa434079e4f9e6749a86e6f2fb, type: 3}
-      propertyPath: m_SpriteTilingProperty.newSize.y
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 4377309229316194578, guid: da9b33fa434079e4f9e6749a86e6f2fb, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
@@ -1227,22 +1219,6 @@ Transform:
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8272478538159699137, guid: 7d0c06269f15b8443ac098c62699231b, type: 3}
   m_PrefabInstance: {fileID: 406157978}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9bcbda772de0f149acee1a5f95e1d1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &439228803 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8086906944615199179, guid: 84b099214cad50d4e88e4b37abf23d7b, type: 3}
-  m_PrefabInstance: {fileID: 8086906944511780936}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &439228804 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8086906944615199180, guid: 84b099214cad50d4e88e4b37abf23d7b, type: 3}
-  m_PrefabInstance: {fileID: 8086906944511780936}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -5522,8 +5498,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-<<<<<<< HEAD:CoCoJam2021/Assets/Scenes/NewTrapUI.unity
-=======
     - target: {fileID: 3749228762171901461, guid: c4d10d12bcc39474b98ab0228cf92271, type: 3}
       propertyPath: m_fontSize
       value: 20
@@ -5544,7 +5518,6 @@ PrefabInstance:
       propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
->>>>>>> ld_final:CoCoJam2021/Assets/Scenes/FinalDemo.unity
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4d10d12bcc39474b98ab0228cf92271, type: 3}
 --- !u!224 &1825242644 stripped
@@ -5726,7 +5699,6 @@ Transform:
   - {fileID: 39517857}
   - {fileID: 465594734}
   - {fileID: 178146141}
-  - {fileID: 439228803}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6557,10 +6529,6 @@ PrefabInstance:
       propertyPath: audioSource
       value: 
       objectReference: {fileID: 933794482}
-    - target: {fileID: 4557150214900474864, guid: 1560dffc70258da4b90098e174a942e4, type: 3}
-      propertyPath: monsterSprite
-      value: 
-      objectReference: {fileID: 439228804}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1560dffc70258da4b90098e174a942e4, type: 3}
 --- !u!4 &2137471772 stripped
@@ -6930,63 +6898,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1231ebfa9d2c8c4994fd312ee2dd263, type: 3}
---- !u!1001 &8086906944511780936
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1852526624}
-    m_Modifications:
-    - target: {fileID: 8086906944615199177, guid: 84b099214cad50d4e88e4b37abf23d7b, type: 3}
-      propertyPath: m_Name
-      value: Monster
-      objectReference: {fileID: 0}
-    - target: {fileID: 8086906944615199179, guid: 84b099214cad50d4e88e4b37abf23d7b, type: 3}
-      propertyPath: m_RootOrder
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 8086906944615199179, guid: 84b099214cad50d4e88e4b37abf23d7b, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -2.97
-      objectReference: {fileID: 0}
-    - target: {fileID: 8086906944615199179, guid: 84b099214cad50d4e88e4b37abf23d7b, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.08
-      objectReference: {fileID: 0}
-    - target: {fileID: 8086906944615199179, guid: 84b099214cad50d4e88e4b37abf23d7b, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8086906944615199179, guid: 84b099214cad50d4e88e4b37abf23d7b, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8086906944615199179, guid: 84b099214cad50d4e88e4b37abf23d7b, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8086906944615199179, guid: 84b099214cad50d4e88e4b37abf23d7b, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8086906944615199179, guid: 84b099214cad50d4e88e4b37abf23d7b, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8086906944615199179, guid: 84b099214cad50d4e88e4b37abf23d7b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8086906944615199179, guid: 84b099214cad50d4e88e4b37abf23d7b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8086906944615199179, guid: 84b099214cad50d4e88e4b37abf23d7b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 84b099214cad50d4e88e4b37abf23d7b, type: 3}
 --- !u!1001 &9156329526419491432
 PrefabInstance:
   m_ObjectHideFlags: 0
