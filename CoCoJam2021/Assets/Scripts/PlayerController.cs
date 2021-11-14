@@ -17,10 +17,12 @@ public class PlayerController : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
     public Animator animator;
+    private Rigidbody2D rb;
 
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -51,6 +53,12 @@ public class PlayerController : MonoBehaviour
         else
         {
             acceleration = 0;
+        }
+
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            rb.constraints = RigidbodyConstraints2D.None;
+            animator.SetTrigger("IsDead");
         }
     }
 }
