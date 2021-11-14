@@ -1093,7 +1093,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1757346263
-  m_SortingLayer: 2
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 3b75ff04e5f7696418f1127bbe14e635, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1136,6 +1136,8 @@ MonoBehaviour:
   accelerationRate: 0.1
   canMoveLeft: 1
   canMoveRight: 1
+  idleSprite: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!50 &1223835547
 Rigidbody2D:
   serializedVersion: 4
@@ -1213,7 +1215,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 447919497
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 2dce9d6eb4d05f644a69a2a46da5034d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
@@ -1317,6 +1319,10 @@ PrefabInstance:
       propertyPath: floor
       value: 
       objectReference: {fileID: 876650233}
+    - target: {fileID: 9156329527696374715, guid: 4f3fad077df462e4997f8fa4ec2edd00, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1223835546}
     - target: {fileID: 9156329527696374715, guid: 4f3fad077df462e4997f8fa4ec2edd00, type: 3}
       propertyPath: objects.Array.data[0]
       value: 
@@ -1753,6 +1759,10 @@ PrefabInstance:
       propertyPath: floor
       value: 
       objectReference: {fileID: 914363272}
+    - target: {fileID: 9156329527696374715, guid: 4f3fad077df462e4997f8fa4ec2edd00, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1223835546}
     - target: {fileID: 9156329527696374715, guid: 4f3fad077df462e4997f8fa4ec2edd00, type: 3}
       propertyPath: objects.Array.data[0]
       value: 
