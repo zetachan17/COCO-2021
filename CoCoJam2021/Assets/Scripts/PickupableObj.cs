@@ -7,6 +7,10 @@ public class PickupableObj : Interactable
     private GameController gameInstance;
     [SerializeField]
     private Interactable lockedInteractable;
+    [SerializeField]
+    private AudioSource audioSource;
+    [SerializeField]
+    private AudioClip audioClip;
 
     private void Update() {
         DetectInteraction(KeyCode.E);
@@ -19,6 +23,7 @@ public class PickupableObj : Interactable
         if(lockedInteractable)
         {
             lockedInteractable.Unlock();
+        audioSource.PlayOneShot(audioClip);
         }
     }
 

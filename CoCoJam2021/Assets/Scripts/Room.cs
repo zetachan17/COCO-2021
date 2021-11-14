@@ -5,11 +5,23 @@ using UnityEngine;
 public class Room : Interactable
 {
     [SerializeField]
+    private bool isLocked = false;
+    [SerializeField]
     private SpriteFader wall;
     [SerializeField]
     private SpriteFader door;
     [SerializeField]
     private GameObject corridorObjects;
+    [SerializeField]
+    private PlayerController player;
+    [SerializeField]
+    private AudioSource audioSource;
+    [SerializeField]
+    private AudioClip doorOpen;
+    [SerializeField]
+    private AudioClip doorClose;
+    [SerializeField]
+    private AudioClip doorLocked;
     [SerializeField]
     private List<Collider2D> objects;
     [SerializeField]
@@ -21,8 +33,7 @@ public class Room : Interactable
 
     public float transparency = 0.5f;
 
-    [SerializeField]
-    private PlayerController player;
+    
 
     private void Start()
 	{
@@ -81,7 +92,9 @@ public class Room : Interactable
                 // Animation
                 player.animator.SetBool("IsEntering", true);
                 StartCoroutine(Wait());
+                StartCoroutine(AudioWait());
             }else{
+                audioSource.PlayOneShot(doorLocked);
                 Debug.Log("Room is locked");
                 // room is locked animation
             }
@@ -105,6 +118,7 @@ public class Room : Interactable
                 b.gameObject.SetActive(false);
             }
             isPlayerInside = false;
+            StartCoroutine(AudioWait());
         }
         //isPlayerInside = !isPlayerInside;
     }
@@ -113,5 +127,11 @@ public class Room : Interactable
     {
         yield return new WaitForSeconds(0.1f);
         player.animator.SetBool("IsEntering", false);
+    }
+
+    IEnumerator AudioWait(){
+        audioSource.PlayOneShot(doorOpen);
+        yield return new WaitForSeconds(0.3f);
+        audioSource.PlayOneShot(doorClose);
     }
 }
