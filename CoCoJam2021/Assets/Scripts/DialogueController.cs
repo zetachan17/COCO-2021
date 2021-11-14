@@ -37,6 +37,9 @@ public class DialogueController : MonoBehaviour
 
     private bool dialogInSession = false;
 
+    [SerializeField]
+    private AudioSource audioSource;
+
     private void Awake() {
         if(instance == null)
 		{
@@ -70,19 +73,21 @@ public class DialogueController : MonoBehaviour
 
     IEnumerator writeDialog()
     {
+        
         AnimateCharacter(dialog[0].isCat);
 
         dialogueAnimator.SetTrigger("Enter");
         yield return new WaitForSeconds(fadeTimer);
-
+        
         while (dialog.Count != 0) {
             AnimateCharacter(dialog[0].isCat);
-
+            audioSource.Play();
             foreach (char character in dialog[0].line.ToCharArray())
             {
                 dialogueText.text += character;
                 yield return new WaitForSeconds(dialogueSpeed);
             }
+            audioSource.Stop();
             dialog.RemoveAt(0);
 
             yield return new WaitForSeconds(dialogueTimer);
