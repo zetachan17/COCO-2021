@@ -27,10 +27,9 @@ public class QTETrap : Trap
             }
         }
         if(isStarted && !isCompleted){
-            if(Input.GetKeyDown(KeyCode.Space)){
+            if(Input.GetKeyDown(KeyCode.S)){
                 isCompleted = true;
                 uiObj.SetActive(false);
-                gameObject.SetActive(false);
                 TrapSuccess();
                 return;
             }
@@ -38,6 +37,7 @@ public class QTETrap : Trap
             timerTxt.text = (time-timer).ToString("n2") + " s";
             if(timer >= time){
                 isCompleted = true;
+                uiObj.SetActive(false);
                 TrapFail();
             }
             float stepAmount = (90.0f * Time.deltaTime)/time;

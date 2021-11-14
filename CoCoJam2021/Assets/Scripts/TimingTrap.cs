@@ -22,8 +22,7 @@ public class TimingTrap : Trap
 
     private void Start() {
         size = Mathf.Clamp(size, 0.1f, (1/sizeStep));
-        startValue = Random.Range(0, 1-(sizeStep*size));
-        
+        startValue = Random.Range(0, 1-(sizeStep*size));  
     }
     // Update is called once per frame
     void Update(){
@@ -52,7 +51,6 @@ public class TimingTrap : Trap
                     if(slider.value >= startValue && slider.value <= startValue + size*sizeStep){
                         isCompleted = true;
                         uiObj.SetActive(false);
-                        gameObject.SetActive(false);
                         TrapSuccess();
                     }
                 }
