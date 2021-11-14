@@ -77,7 +77,7 @@ public class PlayerController : MonoBehaviour
             audioSource.PlayOneShot(deathAudio);
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.S))
         {
             animator.SetBool("IsCrouching", true);
             StartCoroutine(Wait());

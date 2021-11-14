@@ -27,7 +27,7 @@ public class QTETrap : Trap
             }
         }
         if(isStarted && !isCompleted){
-            if(Input.GetKeyDown(KeyCode.Space)){
+            if(Input.GetKeyDown(KeyCode.S)){
                 isCompleted = true;
                 uiObj.SetActive(false);
                 gameObject.SetActive(false);
