@@ -14,14 +14,19 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private SpriteFader floorTransition;
     private int currentFloor = 2;
-    [SerializeField] GameObject background;
 
     public PlayerController player;
     public Camera _camera;
     public float transitionTime = 2.0f;
     private IEnumerator transition = null;
 
+<<<<<<< HEAD
     private void Awake() {
+=======
+    // Start is called before the first frame update
+    void Start()
+    {
+>>>>>>> parent of 060107f (add winning screen)
         // Singleton
         if(instance == null)
 		{
@@ -49,9 +54,7 @@ public class GameController : MonoBehaviour
     public void RemoveObject(PickupableObj obj){
         objects.Remove(obj);
         if(objects.Count == 0)
-        {
-            background.SetActive(true);
-        }
+            isGameEnded = true;
     }
 
     public void KillPlayer(){
