@@ -34,6 +34,7 @@ public class ButtonMashTrap : Trap
                     gameObject.SetActive(false);
                     TrapSuccess();
                 }else if(slider.value <= 0){
+                    isCompleted = true;
                     TrapFail();
                 }
             }

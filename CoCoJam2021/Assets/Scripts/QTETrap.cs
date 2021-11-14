@@ -37,6 +37,7 @@ public class QTETrap : Trap
             timer += Time.deltaTime;
             timerTxt.text = (time-timer).ToString("n2") + " s";
             if(timer >= time){
+                isCompleted = true;
                 TrapFail();
             }
             float stepAmount = (90.0f * Time.deltaTime)/time;

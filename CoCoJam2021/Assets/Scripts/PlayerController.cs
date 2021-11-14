@@ -17,6 +17,13 @@ public class PlayerController : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
     public Animator animator;
+    [SerializeField]
+    private AudioSource audioSource;
+    [SerializeField]
+    private AudioClip deathAudio;
+    [SerializeField]
+    private float timeBetweensteps = 0.1f;
+    private float timer = 0.0f;
     private Rigidbody2D rb;
 
     void Start()
@@ -49,16 +56,24 @@ public class PlayerController : MonoBehaviour
 
             transform.Translate(moveValue*characterSpeed*acceleration*Time.deltaTime,0,0);
             animator.SetFloat("Speed", Mathf.Abs(moveValue * characterSpeed * acceleration * Time.deltaTime));
+            timer += Time.deltaTime;
+            if(timer >= timeBetweensteps){
+                audioSource.Play();
+                timer = 0.0f;
+            }
+            
         }
         else
         {
             acceleration = 0;
+            timer = 0.0f;
         }
 
         if (Input.GetKeyDown(KeyCode.X))
         {
             rb.constraints = RigidbodyConstraints2D.None;
             animator.SetTrigger("IsDead");
+            audioSource.PlayOneShot(deathAudio);
         }
     }
 }

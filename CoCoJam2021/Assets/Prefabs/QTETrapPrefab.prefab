@@ -122,5 +122,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e092bdbffc8a3f4f8a2d5fc9a1155f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
+  start: {fileID: 8300000, guid: bceb1b1acef18f44bbb1551dfbafddbc, type: 3}
+  success: {fileID: 8300000, guid: 20b2b9553b021044d82a50019566f25a, type: 3}
+  fail: {fileID: 8300000, guid: f3d880c76040d5947b12465daf5188b2, type: 3}
+  pivotPoint: {fileID: 0}
+  swingLeft: 0
   uiObj: {fileID: 0}
+  timerTxt: {fileID: 0}
   time: 1
