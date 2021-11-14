@@ -100,29 +100,32 @@ public class Room : Interactable
         }
         else
         {
-            corridorObjects.SetActive(true);
-            wall.FadeTo(1);
-
-            foreach (var obj in objects)
-            {
-                obj.enabled = false;
-            }
-            foreach (var obj in traps)
-            {
-                obj.enabled = false;
-            }
-
-            foreach (var b in activatedBoundaries)
-            {
-                b.gameObject.SetActive(false);
-            }
-            isPlayerInside = false;
+            CloseRoom();
             if(doorOpen != null)
 			{
                 StartCoroutine(AudioWait());
             }
         }
-        //isPlayerInside = !isPlayerInside;
+    }
+
+    public void CloseRoom(){
+        corridorObjects.SetActive(true);
+        wall.FadeTo(1);
+
+        foreach (var obj in objects)
+        {
+            obj.enabled = false;
+        }
+        foreach (var obj in traps)
+        {
+            obj.enabled = false;
+        }
+
+        foreach (var b in activatedBoundaries)
+        {
+            b.gameObject.SetActive(false);
+        }
+        isPlayerInside = false;
     }
 
     IEnumerator Wait()

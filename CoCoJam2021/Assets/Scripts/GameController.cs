@@ -7,6 +7,7 @@ public class GameController : MonoBehaviour
     public static GameController instance = null;
     [SerializeField]
     private List<PickupableObj> objects;
+    private Room[] rooms;
     [SerializeField]
     private bool isGameEnded = false;
 
@@ -31,11 +32,7 @@ public class GameController : MonoBehaviour
 		{
             Destroy(this.gameObject);
 		}
-
-        foreach (PickupableObj obj in objects){
-            obj.AssignGame(this);
-        }
-
+        rooms = FindObjectsOfType(typeof(Room)) as Room[];
         SetFloor(currentFloor, new Vector2(100, -1.5f));
     }
 
@@ -45,10 +42,18 @@ public class GameController : MonoBehaviour
             isGameEnded = true;
     }
 
+    public void KillPlayer(){
+        Debug.Log("Killing player on floor: " + currentFloor);
+        Debug.Log("transition? " + transition == null);
+        player.Die();
+        ChangeFloor(2,new Vector2(100, -1.5f));
+    }
+
     public void ChangeFloor(int floor, Vector2 destination)
 	{
         if (transition == null && floor != currentFloor)
         {
+            Debug.Log("FadeTeleport");
             transition = changeFloor(floor, destination);
             StartCoroutine(transition);
         }
@@ -65,6 +70,11 @@ public class GameController : MonoBehaviour
         // Teleport the player
         SetFloor(floor, destination);
 
+        //Close all rooms
+        foreach (Room room in rooms){
+            room.CloseRoom();
+        }
+
         // Fade to normal
         floorTransition.FadeTo(0);
         while (floorTransition.currentFade != null)
@@ -76,9 +86,8 @@ public class GameController : MonoBehaviour
 
     private void SetFloor(int floor, Vector2 destination)
 	{
-
         player.transform.position = new Vector3(destination.x, destination.y, 0);
-
+        player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionY;
         _camera.transform.position = new Vector3(floor * 50, _camera.transform.position.y, -10);
         currentFloor = floor;
     }

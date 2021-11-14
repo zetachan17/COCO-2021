@@ -17,7 +17,7 @@ public class PickupableObj : Interactable
     }
 
     override protected void TriggerEffect() {
-        gameInstance.RemoveObject(this);
+        GameController.instance.RemoveObject(this);
         gameObject.SetActive(false);
         Debug.Log("Picked up: " + gameObject.name);
         if(lockedInteractable)
@@ -25,9 +25,5 @@ public class PickupableObj : Interactable
             lockedInteractable.Unlock();
             audioSource.PlayOneShot(audioClip);
         }
-    }
-
-    public void AssignGame(GameController gameInstance){
-        this.gameInstance = gameInstance;
     }
 }

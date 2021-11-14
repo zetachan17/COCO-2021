@@ -31,10 +31,10 @@ public class ButtonMashTrap : Trap
                 if(slider.value >= 1){
                     isCompleted = true;
                     uiObj.SetActive(false);
-                    gameObject.SetActive(false);
                     TrapSuccess();
                 }else if(slider.value <= 0){
                     isCompleted = true;
+                    uiObj.SetActive(false);
                     TrapFail();
                 }
             }

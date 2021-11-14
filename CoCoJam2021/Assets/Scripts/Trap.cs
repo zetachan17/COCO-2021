@@ -20,10 +20,13 @@ public class Trap : MonoBehaviour
     protected void TrapSuccess(){
         Debug.Log("Trap completed");
         audioSource.PlayOneShot(success);
+        gameObject.SetActive(false);
     }
     protected void TrapFail(){
         Debug.Log("Trap failed");
         audioSource.PlayOneShot(fail);
+        GameController.instance.KillPlayer();
+        gameObject.SetActive(false);
     }
     private void OnTriggerEnter2D(Collider2D collision)
 	{
@@ -34,13 +37,4 @@ public class Trap : MonoBehaviour
             _isPlayerInRange = true;
 		}
 	}
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        Debug.Log(collision.gameObject.tag + " Exited " + gameObject.name);
-        if (collision.gameObject.tag == "Player")
-        {
-            _isPlayerInRange = false;
-        }
-    }
 }

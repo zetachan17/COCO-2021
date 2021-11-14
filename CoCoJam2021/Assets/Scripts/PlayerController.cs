@@ -70,19 +70,18 @@ public class PlayerController : MonoBehaviour
             timer = 0.0f;
         }
 
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            rb.constraints = RigidbodyConstraints2D.None;
-            animator.SetTrigger("IsDead");
-            audioSource.PlayOneShot(deathAudio);
-        }
-
         if (Input.GetKeyDown(KeyCode.S))
         {
             animator.SetBool("IsCrouching", true);
             StartCoroutine(Wait());
         }
 
+    }
+
+    public void Die(){
+        animator.SetTrigger("IsDead");
+        rb.constraints = RigidbodyConstraints2D.None;
+        audioSource.PlayOneShot(deathAudio);
     }
 
     IEnumerator Wait()
