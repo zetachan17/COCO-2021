@@ -55,7 +55,9 @@ public class PlayerController : MonoBehaviour
             }
 
             transform.Translate(moveValue*characterSpeed*acceleration*Time.deltaTime,0,0);
-            animator.SetFloat("Speed", Mathf.Abs(moveValue * characterSpeed * acceleration * Time.deltaTime));
+
+            animator.SetBool("IsWalking", true);
+
 
             timer += Time.deltaTime;
             if(timer >= timeBetweensteps){
@@ -68,6 +70,7 @@ public class PlayerController : MonoBehaviour
         {
             acceleration = 0;
             timer = 0.0f;
+            animator.SetBool("IsWalking", false);
         }
 
         if (Input.GetKeyDown(KeyCode.S))
@@ -89,4 +92,6 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         animator.SetBool("IsCrouching", false);
     }
+
+
 }
