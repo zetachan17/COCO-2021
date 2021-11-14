@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerController : MonoBehaviour
 {
@@ -14,6 +15,14 @@ public class PlayerController : MonoBehaviour
     public bool canMoveLeft = true;
     public bool canMoveRight = true;
 
+    private SpriteRenderer spriteRenderer;
+    public Animator animator;
+
+    void Start()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -26,16 +35,22 @@ public class PlayerController : MonoBehaviour
             {
                 acceleration += accelerationRate;
             }
+
+            if(moveValue < 0)
+			{
+                spriteRenderer.flipX = true;
+            }
+            else
+			{
+                spriteRenderer.flipX = false;
+            }
+
             transform.Translate(moveValue*characterSpeed*acceleration*Time.deltaTime,0,0);
+            animator.SetFloat("Speed", Mathf.Abs(moveValue * characterSpeed * acceleration * Time.deltaTime));
         }
         else
         {
             acceleration = 0;
         }
-
-        if(Input.GetKeyDown(KeyCode.Q))
-		{
-            GameController.instance.ChangeFloor(1);
-		}
     }
 }

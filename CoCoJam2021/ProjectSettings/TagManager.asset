@@ -52,3 +52,9 @@ TagManager:
   - name: Player
     uniqueID: 1757346263
     locked: 0
+  - name: ForeGround
+    uniqueID: 1793564867
+    locked: 0
+  - name: ScreenEffect
+    uniqueID: 447919497
+    locked: 0
