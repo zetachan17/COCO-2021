@@ -13,11 +13,14 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private SpriteFader floorTransition;
     private int currentFloor = 2;
+    [SerializeField] GameObject background;
 
     public PlayerController player;
     public Camera _camera;
     public float transitionTime = 2.0f;
     private IEnumerator transition = null;
+
+    
 
     // Start is called before the first frame update
     void Start()
@@ -42,7 +45,9 @@ public class GameController : MonoBehaviour
     public void RemoveObject(PickupableObj obj){
         objects.Remove(obj);
         if(objects.Count == 0)
-            isGameEnded = true;
+        {
+            background.SetActive(true);
+        }
     }
 
     public void ChangeFloor(int floor, Vector2 destination)
@@ -82,4 +87,6 @@ public class GameController : MonoBehaviour
         _camera.transform.position = new Vector3(floor * 50, _camera.transform.position.y, -10);
         currentFloor = floor;
     }
+
+
 }
