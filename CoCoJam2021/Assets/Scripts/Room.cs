@@ -39,7 +39,7 @@ public class Room : Interactable
     {
         DetectInteraction(KeyCode.E);
 
-        if (isPlayerInside)
+        if (isPlayerInside && door != null)
         {
             if (isPlayerInRange)
             {
