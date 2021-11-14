@@ -8,15 +8,17 @@ public class Trap : MonoBehaviour
     protected bool isCompleted = false;
     protected bool isStarted = false;
     [SerializeField]
-    private SpriteFader monsterSprite;
+    protected SpriteFader monsterSprite;
     [SerializeField]
-    private AudioSource audioSource;
+    protected AudioSource audioSource;
     [SerializeField]
     private AudioClip start;
     [SerializeField]
     private AudioClip success;
     [SerializeField]
     private AudioClip fail;
+    [SerializeField]
+    protected AudioClip monsterHurt;
     // Start is called before the first frame update
 
     protected void TrapSuccess(){
