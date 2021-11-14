@@ -20,10 +20,10 @@ public class PickupableObj : Interactable
         GameController.instance.RemoveObject(this);
         gameObject.SetActive(false);
         Debug.Log("Picked up: " + gameObject.name);
+        audioSource.PlayOneShot(audioClip);
         if(lockedInteractable)
         {
             lockedInteractable.Unlock();
-            audioSource.PlayOneShot(audioClip);
         }
     }
 }

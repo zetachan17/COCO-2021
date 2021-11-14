@@ -755,7 +755,7 @@ PrefabInstance:
       value: -0.58
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 2033419576037873024, guid: 4f3fad077df462e4997f8fa4ec2edd00, type: 3}
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 4f3fad077df462e4997f8fa4ec2edd00, type: 3}
 --- !u!4 &180765404 stripped
 Transform:
@@ -1242,7 +1242,7 @@ PrefabInstance:
       value: -1.07
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 2033419576037873024, guid: 4f3fad077df462e4997f8fa4ec2edd00, type: 3}
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 4f3fad077df462e4997f8fa4ec2edd00, type: 3}
 --- !u!4 &400350038 stripped
 Transform:
@@ -1430,7 +1430,7 @@ PrefabInstance:
       value: -0.89
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 2033419576037873024, guid: 4f3fad077df462e4997f8fa4ec2edd00, type: 3}
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 4f3fad077df462e4997f8fa4ec2edd00, type: 3}
 --- !u!4 &440686195 stripped
 Transform:
@@ -3171,7 +3171,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -4855,8 +4855,7 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 3.4
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2033419576037873024, guid: 4f3fad077df462e4997f8fa4ec2edd00, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f3fad077df462e4997f8fa4ec2edd00, type: 3}
 --- !u!4 &1420403707 stripped
 Transform:
@@ -5174,7 +5173,7 @@ PrefabInstance:
       value: 6.78
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 2033419576037873024, guid: 4f3fad077df462e4997f8fa4ec2edd00, type: 3}
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 4f3fad077df462e4997f8fa4ec2edd00, type: 3}
 --- !u!4 &1557972383 stripped
 Transform:
@@ -6580,5 +6579,5 @@ PrefabInstance:
       value: 2.89
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 2033419576037873024, guid: 4f3fad077df462e4997f8fa4ec2edd00, type: 3}
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 4f3fad077df462e4997f8fa4ec2edd00, type: 3}
