@@ -37,6 +37,13 @@ public class GameController : MonoBehaviour
         }
 
         SetFloor(currentFloor, new Vector2(100, -1.5f));
+
+        var dialog = new List<DialogLine>();
+        dialog.Add(new DialogLine("We have arrived, Katy!", true));
+        dialog.Add(new DialogLine("Move around using 'WASD' and...", true));
+        dialog.Add(new DialogLine("remember to press 'E' to interact with doors and items!", true));
+        dialog.Add(new DialogLine("I know, Kitty, I'm no pushover when it comes to ghost hunting!", false));
+        DialogueController.instance.WriteDialog(dialog);
     }
 
     public void RemoveObject(PickupableObj obj){
