@@ -5,7 +5,11 @@ using UnityEngine;
 public class Room : Interactable
 {
     [SerializeField]
-    private SpriteFader floor;
+    private SpriteFader wall;
+    [SerializeField]
+    private SpriteFader door;
+    [SerializeField]
+    private GameObject corridorObjects;
     [SerializeField]
     private List<Collider2D> objects;
     [SerializeField]
@@ -39,16 +43,16 @@ public class Room : Interactable
         {
             if (isPlayerInRange)
             {
-                floor.FadeTo(transparency);
+                door.FadeTo(transparency);
             }
             else
 			{
-                floor.FadeTo(0);
+                door.FadeTo(0);
             }
         }
         else
         {
-            floor.FadeTo(1);
+            door.FadeTo(1);
         }
     }
 
@@ -56,6 +60,9 @@ public class Room : Interactable
     {
         if (!isPlayerInside)
         {
+            corridorObjects.SetActive(false);
+            wall.FadeTo(0);
+
             foreach (var obj in objects)
             {
                 obj.enabled = true;
@@ -76,6 +83,9 @@ public class Room : Interactable
         }
         else
         {
+            corridorObjects.SetActive(true);
+            wall.FadeTo(1);
+
             foreach (var obj in objects)
             {
                 obj.enabled = false;

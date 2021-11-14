@@ -44,12 +44,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe851464e45617f4b969c40e89f76178, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floor: {fileID: 0}
-  objects:
-  - {fileID: 0}
-  activatedBoundaries:
-  - {fileID: 0}
+  wall: {fileID: 0}
+  door: {fileID: 0}
+  corridorObjects: {fileID: 0}
+  objects: []
+  traps: []
+  activatedBoundaries: []
   transparency: 0.5
+  player: {fileID: 0}
 --- !u!61 &9156329527696374716
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -74,5 +76,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.22, y: 5.98}
+  m_Size: {x: 0.26, y: 5.98}
   m_EdgeRadius: 0
