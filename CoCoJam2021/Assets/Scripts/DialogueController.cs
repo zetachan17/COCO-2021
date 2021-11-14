@@ -64,7 +64,10 @@ public class DialogueController : MonoBehaviour
 	{
         if(!dialogInSession)
 		{
-            this.dialog = dialog;
+            foreach(DialogLine dl in dialog)
+			{
+                this.dialog.Add(new DialogLine(dl.line, dl.isCat));
+            }
             StartCoroutine(writeDialog());
         }
 	}

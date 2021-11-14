@@ -585,6 +585,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLocked: 0
+  dialog: []
   goesToFloor: 3
   destination: {x: 161, y: 12.5}
 --- !u!61 &161540133 stripped
@@ -2900,6 +2901,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2085123190}
     m_Modifications:
+    - target: {fileID: 8382166294220954598, guid: 4309578d4ada17e4da8bfccb546ecd38, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 3.3333333
+      objectReference: {fileID: 0}
+    - target: {fileID: 8382166294220954598, guid: 4309578d4ada17e4da8bfccb546ecd38, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 3.3333333
+      objectReference: {fileID: 0}
     - target: {fileID: 8382166294220954599, guid: 4309578d4ada17e4da8bfccb546ecd38, type: 3}
       propertyPath: audioClip
       value: 
@@ -3615,6 +3624,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 39517857}
     m_Modifications:
+    - target: {fileID: 8382166294220954598, guid: 4309578d4ada17e4da8bfccb546ecd38, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 5.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 8382166294220954598, guid: 4309578d4ada17e4da8bfccb546ecd38, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 11.82
+      objectReference: {fileID: 0}
     - target: {fileID: 8382166294220954616, guid: 4309578d4ada17e4da8bfccb546ecd38, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -3693,6 +3710,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLocked: 0
+  dialog: []
   lockedInteractable: {fileID: 161540132}
   audioSource: {fileID: 933794482}
   audioClip: {fileID: 8300000, guid: b99958335f37da148b3ed31e587376f2, type: 3}
@@ -4261,6 +4279,18 @@ PrefabInstance:
       propertyPath: audioSource
       value: 
       objectReference: {fileID: 933794482}
+    - target: {fileID: 8382166294220954599, guid: 4309578d4ada17e4da8bfccb546ecd38, type: 3}
+      propertyPath: dialog.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8382166294220954599, guid: 4309578d4ada17e4da8bfccb546ecd38, type: 3}
+      propertyPath: dialog.Array.data[0].line
+      value: A key! This could be useful.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8382166294220954599, guid: 4309578d4ada17e4da8bfccb546ecd38, type: 3}
+      propertyPath: dialog.Array.data[0].isCat
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8382166294220954616, guid: 4309578d4ada17e4da8bfccb546ecd38, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -5312,7 +5342,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 4437721fe4254434e9d4458e79599bb6, type: 3}
     - target: {fileID: 8382166294220954617, guid: 4309578d4ada17e4da8bfccb546ecd38, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8382166294220954617, guid: 4309578d4ada17e4da8bfccb546ecd38, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5388,6 +5418,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLocked: 0
+  dialog:
+  - line: Go down?
+    isCat: 1
   goesToFloor: 2
   destination: {x: 111, y: -1.5}
 --- !u!1001 &2011219079
@@ -6042,6 +6075,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1530666821}
     m_Modifications:
+    - target: {fileID: 3749228761207897435, guid: c4d10d12bcc39474b98ab0228cf92271, type: 3}
+      propertyPath: dialogueSpeed
+      value: 0.02
+      objectReference: {fileID: 0}
     - target: {fileID: 3749228761207897446, guid: c4d10d12bcc39474b98ab0228cf92271, type: 3}
       propertyPath: m_Name
       value: DialogElement

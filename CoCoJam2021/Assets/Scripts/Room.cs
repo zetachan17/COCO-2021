@@ -96,6 +96,10 @@ public class Room : Interactable
                 audioSource.PlayOneShot(doorLocked);
                 Debug.Log("Room is locked");
                 // room is locked animation
+                var dialog = new List<DialogLine>();
+                dialog.Add(new DialogLine("It's locked...", true));
+                dialog.Add(new DialogLine("Yeah, I can see that.", false));
+                DialogueController.instance.WriteDialog(dialog);
             }
         }
         else
