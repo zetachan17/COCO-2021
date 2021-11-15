@@ -37,7 +37,7 @@ public class GameController : MonoBehaviour
     void Start()
     {
         rooms = FindObjectsOfType(typeof(Room)) as Room[];
-        SetFloor(currentFloor, new Vector2(100, -1.5f));
+        SetFloor(currentFloor, new Vector2(90, -1.5f));
 
         PlayerController.instance.StopFor(14);
         var dialog = new List<DialogLine>();
