@@ -71,6 +71,12 @@ public class GameController : MonoBehaviour
     public void KillPlayer(){
         player.Die();
         ChangeFloor(2,new Vector2(100, -1.5f));
+
+        //Close all rooms
+        foreach (Room room in rooms)
+        {
+            room.CloseRoom();
+        }
     }
 
     public void ChangeFloor(int floor, Vector2 destination)
@@ -93,11 +99,6 @@ public class GameController : MonoBehaviour
         
         // Teleport the player
         SetFloor(floor, destination);
-
-        //Close all rooms
-        foreach (Room room in rooms){
-            room.CloseRoom();
-        }
 
         // Fade to normal
         floorTransition.FadeTo(0);
