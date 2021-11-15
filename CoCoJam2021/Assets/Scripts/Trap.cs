@@ -28,18 +28,25 @@ public class Trap : MonoBehaviour
         if(monsterSprite){
             monsterSprite.FadeTo(0);
         }
+
+        PlayerController.instance.UnStop();
     }
     protected void TrapFail(){
         Debug.Log("Trap failed");
         audioSource.PlayOneShot(fail);
         GameController.instance.KillPlayer();
         gameObject.SetActive(false);
+
+        PlayerController.instance.UnStop();
     }
     private void OnTriggerEnter2D(Collider2D collision)
 	{
         Debug.Log(collision.gameObject.tag + " Entered " + gameObject.name);
 		if(collision.gameObject.tag == "Player" && !_isPlayerInRange)
 		{
+            PlayerController.instance.Stop();
+            PlayerController.instance.canCrouch = true;
+
             audioSource.PlayOneShot(start);
             _isPlayerInRange = true;
             if(monsterSprite){

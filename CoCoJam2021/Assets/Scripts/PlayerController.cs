@@ -5,6 +5,8 @@ using UnityEngine.Events;
 
 public class PlayerController : MonoBehaviour
 {
+    public static PlayerController instance = null;
+
     [SerializeField]
     private float  characterSpeed = 10.0f;
     [SerializeField]
@@ -14,6 +16,7 @@ public class PlayerController : MonoBehaviour
     [HideInInspector]
     public bool canMoveLeft = true;
     public bool canMoveRight = true;
+    public bool canCrouch = true;
 
     private SpriteRenderer spriteRenderer;
     public Animator animator;
@@ -26,7 +29,19 @@ public class PlayerController : MonoBehaviour
     private float timer = 0.0f;
     private Rigidbody2D rb;
 
-    void Start()
+	private void Awake()
+	{
+		if(instance == null)
+		{
+            instance = this;
+		}
+        else
+		{
+            Destroy(gameObject);
+		}
+	}
+
+	void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
@@ -73,7 +88,7 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("IsWalking", false);
         }
 
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.S) && canCrouch)
         {
             animator.SetBool("IsCrouching", true);
             StartCoroutine(Wait());
@@ -93,5 +108,29 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("IsCrouching", false);
     }
 
-    //IEnumerator()
+    public void StopFor(float time)
+	{
+        StartCoroutine(stopFor(time));
+	}
+
+    private IEnumerator stopFor(float time)
+	{
+        Stop();
+        yield return new WaitForSeconds(time);
+        UnStop();
+	}
+
+	public void Stop()
+	{
+        canMoveLeft = false;
+        canMoveRight = false;
+        canCrouch = false;
+    }
+
+    public void UnStop()
+    {
+        canCrouch = true;
+        canMoveLeft = true;
+        canMoveRight = true;
+    }
 }

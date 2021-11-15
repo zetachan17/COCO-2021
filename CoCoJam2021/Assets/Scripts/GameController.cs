@@ -39,6 +39,7 @@ public class GameController : MonoBehaviour
         rooms = FindObjectsOfType(typeof(Room)) as Room[];
         SetFloor(currentFloor, new Vector2(100, -1.5f));
 
+        PlayerController.instance.StopFor(14);
         var dialog = new List<DialogLine>();
         dialog.Add(new DialogLine("We have arrived, Katy!", true));
         dialog.Add(new DialogLine("Move around using 'WASD' and...", true));
