@@ -8,6 +8,7 @@ public class SpriteFader : MonoBehaviour
     private SpriteRenderer _renderer;
 
     public IEnumerator currentFade = null;
+    private float goingForAlpha = 0;
 
 	private void Start()
 	{
@@ -16,8 +17,19 @@ public class SpriteFader : MonoBehaviour
 
     public void FadeTo(float alpha)
 	{
+        if(goingForAlpha != alpha)
+		{
+            if(currentFade != null)
+			{
+                StopCoroutine(currentFade);
+                currentFade = null;
+			}
+		}
+
         if(currentFade == null && _renderer.color.a != alpha)
 		{
+            goingForAlpha = alpha;
+
             currentFade = fadeTo(alpha);
             StartCoroutine(currentFade);
         }
