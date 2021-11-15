@@ -10,12 +10,22 @@ public class Interactable : MonoBehaviour
     [SerializeField]
     private List<DialogLine> dialog;
 
+    [SerializeField]
+    private List<DialogLine> lockedDialog;
+
     protected bool isPlayerInRange = false;
 
     // Implement this in child update function
-    protected void DetectInteraction(KeyCode key) {
-        if (Input.GetKeyDown(key) && isPlayerInRange && !isLocked) {
+    protected void DetectInteraction(KeyCode key)
+    {
+        if (Input.GetKeyDown(key) && isPlayerInRange)
+        {
             TriggerEffect();
+            if (isLocked)
+            {
+                DialogueController.instance.WriteDialog(lockedDialog);
+            }
+
         }
     }
 
@@ -28,10 +38,7 @@ public class Interactable : MonoBehaviour
 		{
             isPlayerInRange = true;
             
-            if(dialog.Count != 0)
-			{
-                DialogueController.instance.WriteDialog(dialog);
-            }
+            DialogueController.instance.WriteDialog(dialog);
         }
 	}
 

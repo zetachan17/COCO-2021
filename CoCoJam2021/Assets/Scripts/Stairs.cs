@@ -16,8 +16,11 @@ public class Stairs : Interactable
         DetectInteraction(KeyCode.E);
     }
     protected override void TriggerEffect()
-	{
-		GameController.instance.ChangeFloor(goesToFloor, destination);
-        audioSource.PlayOneShot(audioClip, 0.5f);
-	}
+    {
+        if (!isLocked)
+        {
+            GameController.instance.ChangeFloor(goesToFloor, destination);
+            audioSource.PlayOneShot(audioClip, 0.5f);
+        }
+    }
 }

@@ -92,7 +92,7 @@ public class Room : Interactable
                 player.animator.SetBool("IsEntering", true);
                 StartCoroutine(Wait());
                 StartCoroutine(AudioWait());
-            }else{
+            } else {
                 audioSource.PlayOneShot(doorLocked);
                 Debug.Log("Room is locked");
                 // room is locked animation

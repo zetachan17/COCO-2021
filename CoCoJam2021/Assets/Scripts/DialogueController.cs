@@ -54,7 +54,7 @@ public class DialogueController : MonoBehaviour
 
     public void WriteDialog(List<DialogLine> dialog)
 	{
-        if(!dialogInSession)
+        if(!dialogInSession && dialog.Count != 0)
 		{
             dialogInSession = true;
             foreach(DialogLine dl in dialog)

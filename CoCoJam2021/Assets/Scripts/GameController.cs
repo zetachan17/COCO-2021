@@ -50,7 +50,22 @@ public class GameController : MonoBehaviour
     public void RemoveObject(PickupableObj obj){
         objects.Remove(obj);
         if (objects.Count == 0)
+            isGameEnded = true;
+    }
+
+    public void Win()
+	{
+        if(isGameEnded)
+		{
             background.SetActive(true);
+        }
+        else
+		{
+            var dialog = new List<DialogLine>();
+            dialog.Add(new DialogLine("We're not done, Katy!", true));
+            dialog.Add(new DialogLine("We still need items to banish Catsper.", true));
+            DialogueController.instance.WriteDialog(dialog);
+        }
     }
 
     public void KillPlayer(){
